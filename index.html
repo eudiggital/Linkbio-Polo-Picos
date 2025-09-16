@@ -3,938 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instituto CB - Polo Picos | Educação Profissional</title>
-    <meta name="description" content="Portal do Instituto CB - Polo Picos com cursos técnicos, graduação e pós-graduação em parceria com Unifael e Uninassau">
+    <title>Instituto CB - Polo Picos</title>
+    <meta name="description" content="Portal do Instituto CB - Polo Picos com cursos técnicos, EJA e segunda licenciatura.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
-        
-        :root {
-            --cb-blue: #0a2463;
-            --cb-gold: #d4af37;
-            --unifael-green: #2e7d32;
-            --uninassau-red: #c62828;
-            --light-blue: #3e92cc;
-            --white: #fffaff;
-            --dark-blue: #071a3b;
-            --bg-light: #f0f2f5; /* Um tom de fundo mais suave */
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-light); /* Fundo mais suave */
-            color: #333;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-        
-        .header-font {
-            font-family: 'Playfair Display', serif;
-        }
-        
-        /* Button Effects */
-        .btn {
-            transition: all 0.3s ease;
-            transform: translateY(0);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
-            position: relative;
-            overflow: hidden;
-            z-index: 1; /* Para o ripple ficar por cima */
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Sombra maior no hover */
-        }
-        
-        .btn:active {
-            transform: translateY(1px);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Ripple effect for buttons */
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.7); /* Cor do ripple */
-            animation: ripple-animation 0.6s linear forwards;
-            transform: scale(0);
-            pointer-events: none; /* Não bloquear cliques */
-            z-index: 0; /* Abaixo do texto do botão */
-        }
-
-        .btn-gold .ripple {
-             background: rgba(0, 0, 0, 0.1); /* Ripple escuro para botão dourado */
-        }
-
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-        
-        .btn-cb {
-            background: linear-gradient(135deg, var(--cb-blue) 0%, var(--dark-blue) 100%);
-            color: white;
-        }
-        
-        .btn-cb:hover {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--cb-blue) 100%);
-        }
-        
-        .btn-unifael {
-            background: linear-gradient(135deg, var(--unifael-green) 0%, #1b5e20 100%);
-            color: white;
-        }
-        
-        .btn-unifael:hover {
-            background: linear-gradient(135deg, #1b5e20 0%, var(--unifael-green) 100%);
-        }
-        
-        .btn-uninassau {
-            background: linear-gradient(135deg, var(--uninassau-red) 0%, #8e0000 100%);
-            color: white;
-        }
-        
-        .btn-uninassau:hover {
-            background: linear-gradient(135deg, #8e0000 0%, var(--uninassau-red) 100%);
-        }
-        
-        .btn-gold {
-            background: linear-gradient(135deg, var(--cb-gold) 0%, #f1c40f 100%);
-            color: var(--dark-blue);
-        }
-        
-        .btn-gold:hover {
-            background: linear-gradient(135deg, #f1c40f 0%, var(--cb-gold) 100%);
-        }
-        
-        .btn-blue {
-            background: linear-gradient(135deg, var(--cb-blue) 0%, var(--light-blue) 100%);
-            color: white;
-        }
-        
-        .btn-blue:hover {
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--cb-blue) 100%);
-        }
-        
-        .btn-red {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            color: white;
-        }
-        
-        .btn-red:hover {
-            background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
-        }
-        
-        /* Card Effects */
-        .card-hover {
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            border-radius: 1rem; /* Borda mais arredondada */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Sombra mais suave para cards */
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-8px); /* Mais deslocamento no hover */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Sombra mais intensa no hover */
-            border-color: rgba(10, 36, 99, 0.15); /* Borda mais visível no hover */
-        }
-        
-        /* Institution Button Effects */
-        .institution-btn {
-            transition: all 0.4s ease; /* Transição mais suave */
-            filter: brightness(1);
-            position: relative;
-            z-index: 1;
-            transform: scale(1);
-        }
-        
-        .institution-btn:hover {
-            filter: brightness(1.1); /* Leve brilho no hover */
-            transform: scale(1.02); /* Levemente maior no hover */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra para o botão da instituição */
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-        
-        /* Subpage Transitions */
-        .subpage {
-            display: none;
-            animation: fadeIn 0.6s ease-out; /* Transição mais lenta */
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); } /* Início mais baixo */
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.6s ease-out; /* Transição mais suave */
-        }
-        
-        .mobile-menu.open {
-            max-height: 500px;
-        }
-        
-        /* Hamburger Icon Animation */
-        .hamburger i { 
-            transition: transform 0.4s ease; /* Transição mais suave */
-        }
-        
-        .hamburger.open i { 
-            transform: rotate(180deg); /* Rotação completa para indicar "fechar" */
-        }
-
-        /* Accordion specific styles */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Transição para padding também */
-            background-color: var(--white);
-            border-top: none;
-        }
-        
-        .accordion-content.open {
-            max-height: 500px; /* Ajuste conforme necessário */
-            border-top: 1px solid #e2e8f0;
-            padding-top: 1rem; /* Adicionar padding quando aberto */
-            padding-bottom: 1rem;
-        }
-
-        .accordion-btn i {
-            transition: transform 0.3s ease;
-        }
-        
-        .accordion-btn.active i {
-            transform: rotate(180deg);
-        }
-        
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .institution-buttons {
-                flex-direction: column;
-            }
-            
-            .institution-btn {
-                width: 100%;
-                margin-bottom: 12px;
-            }
-        }
-
-        /* Particle.js container */
-        #particles-js {
-            position: fixed; /* Fixed para não rolar com o conteúdo */
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            top: 0;
-            left: 0;
-            background: linear-gradient(180deg, var(--bg-light) 0%, rgba(248, 249, 250, 0.8) 100%); /* Gradiente suave de fundo */
-        }
-
-        .content-wrapper {
-            position: relative;
-            z-index: 1;
-            min-height: 100vh; /* Garante que o wrapper ocupa a altura total da tela */
-            display: flex;
-            flex-direction: column;
-        }
-        
-    </style>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="min-h-screen">
     <div id="particles-js"></div>
     <div class="content-wrapper">
-        <header class="py-6 px-4 text-center bg-white bg-opacity-90 shadow-md relative z-10"> <div class="max-w-6xl mx-auto">
-                <h1 class="header-font text-4xl md:text-5xl font-bold text-[var(--cb-blue)] mb-1 animate-fade-in-down">
-                    <span class="inline-block">POLO PICOS</span>
-                    <span class="block text-xl md:text-2xl text-[var(--cb-gold)] mt-1">Educação Profissional</span>
+        <header class="py-6 px-4 text-center bg-white bg-opacity-90 shadow-md relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <img src="assets/images/CB.png" alt="Instituto CB Logo" class="w-20 h-20 mx-auto mb-4 rounded-full shadow-lg" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
+                <h1 class="text-4xl md:text-5xl font-bold text-[var(--cb-blue)] mb-1 animate-fade-in-down">
+                    <span class="inline-block">INSTITUTO CB</span>
+                    <span class="block text-xl md:text-2xl text-[var(--cb-gold)] mt-1 font-semibold">POLO PICOS</span>
                 </h1>
-                
-                <div class="md:hidden mt-4">
-                    <button id="mobile-menu-toggle" class="hamburger px-4 py-2 rounded-lg bg-gray-100 text-gray-700 shadow-sm hover:bg-gray-200">
-                        <i class="fas fa-bars text-xl"></i> Instituições Parceiras
-                    </button>
-                </div>
-                
-                <div id="mobile-menu" class="mobile-menu md:hidden mt-2">
-                    <div class="space-y-2 px-4 py-2 bg-white rounded-lg shadow-inner">
-                        <button class="institution-btn btn-cb w-full py-3 px-4 rounded-lg font-medium text-left flex items-center shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <img src="fotos/CB.png" alt="Instituto CB" class="w-10 h-10 mr-3" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
-                            <span>Cleonice Bezerra</span>
-                        </button>
-                        <button class="institution-btn btn-unifael w-full py-3 px-4 rounded-lg font-medium text-left flex items-center shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <img src="fotos/unifael.png" alt="Unifael" class="w-10 h-10 mr-3" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
-                            <span>Unifael</span>
-                        </button>
-                        <button class="institution-btn btn-uninassau w-full py-3 px-4 rounded-lg font-medium text-left flex items-center shadow-md hover:shadow-lg transition-shadow duration-300">
-                            <img src="fotos/uninassau.png" alt="Uninassau" class="w-10 h-10 mr-3" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
-                            <span>Uninassau</span>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="institution-buttons hidden md:flex justify-center space-x-4 mt-6">
-                    <button class="institution-btn btn-cb py-4 px-6 rounded-xl font-medium flex items-center shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <img src="fotos/CB.png" alt="Instituto CB" class="w-10 h-10 mr-3" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
-                        <span>Cleonice Bezerra</span>
-                    </button>
-                    <button class="institution-btn btn-unifael py-4 px-6 rounded-xl font-medium flex items-center shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <img src="fotos/unifael.png" alt="Unifael" class="w-10 h-10 mr-3" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
-                        <span>Unifael</span>
-                    </button>
-                    <button class="institution-btn btn-uninassau py-4 px-6 rounded-xl font-medium flex items-center shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <img src="fotos/uninassau.png" alt="Uninassau" class="w-10 h-10 mr-3" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
-                        <span>Uninassau</span>
-                    </button>
             </div>
         </header>
 
-        <main class="flex-grow px-4 py-8"> <div class="max-w-md md:max-w-2xl mx-auto space-y-10">
-                <div id="cb-subpage" class="subpage bg-white rounded-xl shadow-lg p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-[var(--cb-blue)]">
-                            <i class="fas fa-graduation-cap mr-2"></i>
-                            Cursos Técnicos | EJA | Segunda Licenciatura
-                        </h2>
-                        <button class="back-btn btn-blue py-2 px-4 rounded-lg text-sm">
-                            <i class="fas fa-arrow-left mr-2"></i> Voltar
-                        </button>
+        <main class="flex-grow px-4 py-8">
+            <div class="max-w-md md:max-w-2xl mx-auto space-y-10">
+                
+                <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
+                        <i class="fas fa-book-open text-2xl mr-3 text-[var(--cb-gold)]"></i>
+                        <h2 class="text-xl font-semibold">CURSOS & MATRÍCULAS</h2>
                     </div>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
-                            <h3 class="font-bold text-lg text-[var(--cb-blue)] mb-2">Cursos Técnicos</h3>
+                    <div class="p-4 space-y-4">
+                        <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20matr%C3%ADculas%20com%20desconto." target="_blank" class="btn btn-gold block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center pulse">
+                            <span>Matrículas com Desconto</span>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1l3c9LsTddY3R6h2BFEjezoZbKhHIEgJc/view?usp=sharing" target="_blank" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
+                            <span>Grade de Cursos</span>
+                        </a>
+                        
+                        <div class="mt-4">
+                            <div class="flex justify-between text-sm font-medium text-gray-600 mb-1">
+                                <span>Vagas disponíveis</span>
+                                <span>65% restantes</span>
+                            </div>
+                            <div class="progress-bar h-2 bg-gray-200 rounded-full">
+                                <div class="progress-fill h-full bg-[var(--cb-gold)] rounded-full" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-gray-100">
+                            <h3 class="font-medium text-gray-700 mb-2">Níveis de Ensino:</h3>
                             <ul class="space-y-2">
                                 <li class="flex items-center">
-                                    <i class="fas fa-briefcase text-[var(--cb-blue)] mr-2"></i>
-                                    <span>Administração Empresarial</span>
+                                    <i class="fas fa-user-graduate text-[var(--cb-blue)] mr-2 w-4 text-center"></i>
+                                    <span>Mestrado</span>
                                 </li>
                                 <li class="flex items-center">
-                                    <i class="fas fa-user-nurse text-[var(--cb-blue)] mr-2"></i>
-                                    <span>Enfermagem</span>
+                                    <i class="fas fa-award text-[var(--cb-blue)] mr-2 w-4 text-center"></i>
+                                    <span>Pós-Graduação</span>
                                 </li>
                                 <li class="flex items-center">
-                                    <i class="fas fa-laptop-code text-[var(--cb-blue)] mr-2"></i>
-                                    <span>Informática</span>
+                                    <i class="fas fa-graduation-cap text-[var(--cb-blue)] mr-2 w-4 text-center"></i>
+                                    <span>Graduação</span>
                                 </li>
                                 <li class="flex items-center">
-                                    <i class="fas fa-utensils text-[var(--cb-blue)] mr-2"></i>
-                                    <span>Nutrição e Dietética</span>
+                                    <i class="fas fa-tools text-[var(--cb-blue)] mr-2 w-4 text-center"></i>
+                                    <span>Cursos Técnicos</span>
                                 </li>
                             </ul>
-                            <a href="#" class="btn btn-blue w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center mt-4">
-                                <span>Saiba Mais</span>
-                            </a>
-                        </div>
-                        
-                        <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-100">
-                            <h3 class="font-bold text-lg text-[var(--cb-blue)] mb-2">Segunda Licenciatura</h3>
-                            <div class="bg-white p-3 rounded-md shadow-sm mb-3">
-                                <h4 class="font-semibold text-[var(--cb-blue)] flex items-center">
-                                    <i class="fas fa-chalkboard-teacher mr-2"></i>
-                                    Pedagogia
-                                </h4>
-                                <p class="text-sm text-gray-600 mt-1">Formação rápida para quem já possui licenciatura em outra área.</p>
-                            </div>
-                            <a href="#" class="btn btn-gold w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
-                                <span>Saiba Mais sobre Licenciatura</span>
-                            </a>
-                        </div>
-                        
-                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <h3 class="font-bold text-lg text-[var(--cb-blue)] mb-2">Educação de Jovens e Adultos (EJA)</h3>
-                            <p class="text-sm text-gray-600 mb-3">Complete seus estudos em menos tempo com nosso programa especial.</p>
-                            <a href="#" class="btn btn-blue w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
-                                <i class="fas fa-user-graduate mr-2"></i>
-                                <span>Matrícula EJA</span>
-                            </a>
                         </div>
                     </div>
-                </div>
-                
-                <div id="unifael-subpage" class="subpage bg-white rounded-xl shadow-lg p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-[var(--unifael-green)]">
-                            <i class="fas fa-university mr-2"></i>
-                            Graduação | Pós | Mestrado Internacional
-                        </h2>
-                        <button class="back-btn btn-blue py-2 px-4 rounded-lg text-sm">
-                            <i class="fas fa-arrow-left mr-2"></i> Voltar
-                        </button>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-green-50 p-4 rounded-lg border border-green-100">
-                            <h3 class="font-bold text-lg text-[var(--unifael-green)] mb-2">Cursos de Graduação</h3>
-                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <li class="flex items-center bg-white p-2 rounded">
-                                    <i class="fas fa-balance-scale text-[var(--unifael-green)] mr-2"></i>
-                                    <span>Direito</span>
-                                </li>
-                                <li class="flex items-center bg-white p-2 rounded">
-                                    <i class="fas fa-cogs text-[var(--unifael-green)] mr-2"></i>
-                                    <span>Engenharia Civil</span>
-                                </li>
-                                <li class="flex items-center bg-white p-2 rounded">
-                                    <i class="fas fa-chart-line text-[var(--unifael-green)] mr-2"></i>
-                                    <span>Administração</span>
-                                </li>
-                                <li class="flex items-center bg-white p-2 rounded">
-                                    <i class="fas fa-laptop-medical text-[var(--unifael-green)] mr-2"></i>
-                                    <span>Enfermagem</span>
-                                </li>
-                            </ul>
-                            <a href="#" class="btn btn-unifael w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center mt-4">
-                                <span>Saiba Mais</span>
-                            </a>
-                        </div>
-                        
-                        <div class="bg-teal-50 p-4 rounded-lg border border-teal-100">
-                            <h3 class="font-bold text-lg text-[var(--unifael-green)] mb-2">Pós-Graduações</h3>
-                            <ul class="space-y-2">
-                                <li class="flex items-center bg-white p-3 rounded shadow-sm">
-                                    <div>
-                                        <h4 class="font-semibold">MBA em Gestão Pública</h4>
-                                        <p class="text-xs text-gray-500">360 horas | Aulas semanais</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-center bg-white p-3 rounded shadow-sm">
-                                    <div>
-                                        <h4 class="font-semibold">Direito Digital</h4>
-                                        <p class="text-xs text-gray-500">420 horas | Modalidade EAD</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <a href="#" class="btn btn-unifael w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center mt-4">
-                                <span>Saiba Mais</span>
-                            </a>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-lg border border-green-200 shadow-md">
-                            <h3 class="font-bold text-lg text-[var(--unifael-green)] mb-2 flex items-center">
-                                <i class="fas fa-globe-americas mr-2"></i>
-                                Mestrado Internacional
-                            </h3>
-                            <p class="text-sm text-gray-600 mb-3">Programas de mestrado em parceria com universidades europeias.</p>
-                            <a href="#" class="btn btn-unifael w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center">
-                                <span>Conhecer Programas Internacionais</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="uninassau-subpage" class="subpage bg-white rounded-xl shadow-lg p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <h2 class="text-2xl font-bold text-[var(--uninassau-red)]">
-                            <i class="fas fa-university mr-2"></i>
-                            Graduação | Pós | Mestrado Internacional
-                        </h2>
-                        <button class="back-btn btn-blue py-2 px-4 rounded-lg text-sm">
-                            <i class="fas fa-arrow-left mr-2"></i> Voltar
-                        </button>
-                    </div>
-                    
-                    <div class="space-y-6">
-                        <div class="bg-red-50 p-4 rounded-lg border border-red-100">
-                            <h3 class="font-bold text-lg text-[var(--uninassau-red)] mb-2">Cursos de Graduação</h3>
-                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <li class="flex items-center bg-white p-2 rounded">
-                                    <i class="fas fa-stethoscope text-[var(--uninassau-red)] mr-2"></i>
-                                    <span>Medicina</span>
-                                </li>
-                                <li class="flex items-center bg-white p-2 rounded">
-                                    <i class="fas fa-tooth text-[var(--uninassau-red)] mr-2"></i>
-                                    <span>Odontologia</span>
-                                </li>
-                                <li class="flex items-center bg-white p-2 rounded">
-                                    <i class="fas fa-psychology text-[var(--uninassau-red)] mr-2"></i>
-                                    <span>Psicologia</span>
-                                </li>
-                                <li class="flex items-center bg-white p-2 rounded">
-                                    <i class="fas fa-robot text-[var(--uninassau-red)] mr-2"></i>
-                                    <span>Engenharia de Software</span>
-                                </li>
-                            </ul>
-                            <a href="#" class="btn btn-uninassau w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center mt-4">
-                                <span>Saiba Mais</span>
-                            </a>
-                        </div>
-                        
-                        <div class="bg-pink-50 p-4 rounded-lg border border-pink-100">
-                            <h3 class="font-bold text-lg text-[var(--uninassau-red)] mb-2">Pós-Graduações</h3>
-                            <ul class="space-y-2">
-                                <li class="flex items-center bg-white p-3 rounded shadow-sm">
-                                    <div>
-                                        <h4 class="font-semibold">Ortodontia</h4>
-                                        <p class="text-xs text-gray-500">480 horas | Aulas presenciais</p>
-                                    </div>
-                                </li>
-                                <li class="flex items-center bg-white p-3 rounded shadow-sm">
-                                    <div>
-                                        <h4 class="font-semibold">Psicologia Organizacional</h4>
-                                        <p class="text-xs text-gray-500">360 horas | Modalidade híbrida</p>
-                                    </div>
-                                </li>
-                            </ul>
-                            <a href="#" class="btn btn-uninassau w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center mt-4">
-                                <span>Saiba Mais</span>
-                            </a>
-                        </div>
-                        
-                        <div class="bg-white p-4 rounded-lg border border-red-200 shadow-md">
-                            <h3 class="font-bold text-lg text-[var(--uninassau-red)] mb-2 flex items-center">
-                                <i class="fas fa-globe-americas mr-2"></i>
-                                Mestrado Internacional
-                            </h3>
-                            <p class="text-sm text-gray-600 mb-3">Programas de mestrado em parceria com universidades norte-americanas.</p>
-                            <a href="#" class="btn btn-uninassau w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center">
-                                <span>Conhecer Programas Internacionais</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div id="main-content">
-                    <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                        <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
-                            <i class="fas fa-book-open text-2xl mr-3 text-[var(--cb-gold)]"></i>
-                            <h2 class="text-xl font-semibold">CURSOS & MATRÍCULAS</h2>
-                        </div>
-                        <div class="p-4 space-y-4">
-                            <a href="#" class="btn btn-gold block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center pulse">
-                                <span>Matrículas com Desconto</span>
-                            </a>
-                            <a href="#" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
-                                <span>Grade de Cursos</span>
-                            </a>
-                            
-                            <div class="mt-4">
-                                <div class="flex justify-between text-sm font-medium text-gray-600 mb-1">
-                                    <span>Vagas disponíveis</span>
-                                    <span>65% restantes</span>
-                                </div>
-                                <div class="progress-bar h-2 bg-gray-200 rounded-full">
-                                    <div class="progress-fill h-full bg-[var(--cb-gold)] rounded-full" style="width: 65%;"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="pt-4 border-t border-gray-100">
-                                <h3 class="font-medium text-gray-700 mb-2">Cursos em Destaque:</h3>
-                                <ul class="space-y-2">
-                                    <li class="flex items-center">
-                                        <i class="fas fa-graduation-cap text-[var(--cb-blue)] mr-2"></i>
-                                        <span>Administração Empresarial</span>
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="fas fa-laptop-code text-[var(--cb-blue)] mr-2"></i>
-                                        <span>Desenvolvimento Web</span>
-                                    </li>
-                                    <li class="flex items-center">
-                                        <i class="fas fa-chart-line text-[var(--cb-blue)] mr-2"></i>
-                                        <span>Marketing Digital</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </section>
+                </section>
 
-                    <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover mt-8">
-                        <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
-                            <i class="fas fa-comments text-2xl mr-3 text-[var(--cb-gold)]"></i>
-                            <h2 class="text-xl font-semibold">SUPORTE AO ALUNO</h2>
-                        </div>
-                        <div class="p-4 space-y-4">
-                            <a href="#" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center">
-                                <i class="fab fa-whatsapp text-xl mr-2"></i> 
-                                <span>Chat via WhatsApp</span>
-                            </a>
-                            
-                            <a href="#" class="btn block w-full py-3 px-4 rounded-lg font-medium text-center bg-gray-50 hover:bg-gray-100 text-gray-800 border border-gray-200 flex items-center justify-center">
-                                <i class="fas fa-user-lock mr-2"></i> 
-                                <span>Área do Aluno</span>
-                            </a>
-                            
-                            <div class="accordion">
-                                <button class="accordion-btn w-full text-left py-3 px-4 bg-gray-100 rounded-lg font-medium flex justify-between items-center hover:bg-gray-200">
-                                    <span>FAQ - Perguntas Frequentes</span>
-                                    <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
-                                </button>
-                                <div class="accordion-content bg-gray-50 rounded-b-lg">
-                                    <div class="p-4 space-y-3 text-sm">
-                                        <div class="py-2 border-b border-gray-200">
-                                            <p class="font-medium text-gray-900">Como acesso minha aula online?</p>
-                                            <p class="text-gray-600 mt-1">Acesse nosso portal com seu login e senha no menu "Aulas Online".</p>
-                                        </div>
-                                        <div class="py-2 border-b border-gray-200">
-                                            <p class="font-medium text-gray-900">Quando receberei meu certificado?</p>
-                                            <p class="text-gray-600 mt-1">O certificado é emitido em até 30 dias após conclusão do curso.</p>
-                                        </div>
-                                        <div class="py-2">
-                                            <p class="font-medium text-gray-900">Posso trancar minha matrícula?</p>
-                                            <p class="text-gray-600 mt-1">Sim, consulte nosso regulamento para mais informações.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section> 
+                <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover mt-8">
+                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
+                        <i class="fas fa-comments text-2xl mr-3 text-[var(--cb-gold)]"></i>
+                        <h2 class="text-xl font-semibold">SUPORTE AO ALUNO</h2>
+                    </div>
+                    <div class="p-4">
+                        <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Preciso%20de%20suporte." target="_blank" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center">
+                            <i class="fab fa-whatsapp text-xl mr-2"></i> 
+                            <span>Chat via WhatsApp</span>
+                        </a>
+                    </div>
+                </section> 
 
-                    <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover mt-8">
-                        <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
-                            <i class="fas fa-coins text-2xl mr-3 text-[var(--cb-gold)]"></i>
-                            <h2 class="text-xl font-semibold">FINANCEIRO</h2>
+                <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover mt-8">
+                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
+                        <i class="fas fa-coins text-2xl mr-3 text-[var(--cb-gold)]"></i>
+                        <h2 class="text-xl font-semibold">FINANCEIRO</h2>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20renegocia%C3%A7%C3%A3o%20de%20d%C3%A9bitos." target="_blank" class="btn btn-red block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center pulse">
+                            <span>Renegociar Débito</span>
+                        </a>
+                        <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Preciso%20emitir%20a%20segunda%20via%20de%20um%20boleto." target="_blank" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center">
+                            <i class="fas fa-print mr-2"></i> 
+                            <span>Emitir 2ª Via de Boleto</span>
+                        </a>
+                        
+                        <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
+                            <h3 class="font-medium text-blue-800 mb-1">Informações Financeiras</h3>
+                            <p class="text-sm text-blue-600">Horário de atendimento: Segunda a Sexta, das 9h às 18h</p>
                         </div>
-                        <div class="p-4 space-y-4">
-                            <a href="#" class="btn btn-red block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center pulse">
-                                <span>Renegociar Débito</span>
-                            </a>
-                            <a href="#" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center">
-                                <i class="fas fa-print mr-2"></i> 
-                                <span>Emitir 2ª Via de Boleto</span>
-                            </a>
-                            
-                            <div class="bg-blue-50 p-3 rounded-lg border border-blue-100">
-                                <h3 class="font-medium text-blue-800 mb-1">Informações Financeiras</h3>
-                                <p class="text-sm text-blue-600">Horário de atendimento: Segunda a Sexta, das 9h às 17h</p>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
+                </section>
 
-                    <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover mt-8">
-                        <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
-                            <i class="fas fa-user-tie text-2xl mr-3 text-[var(--cb-gold)]"></i>
-                            <h2 class="text-xl font-semibold">CONTATOS DIRETOS</h2>
-                        </div>
-                        <div class="p-4 space-y-4">
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div class="contact-card bg-gray-50 rounded-lg p-4 text-center hover:bg-blue-50 transition-all duration-300">
-                                    <div class="w-16 h-16 mx-auto rounded-full bg-blue-100 flex items-center justify-center text-2xl text-blue-600 mb-2 shadow-inner">
-                                        <i class="fas fa-user-graduate"></i>
-                                    </div>
-                                    <h3 class="font-medium">Emanuel Bezerra</h3>
-                                    <p class="text-xs text-gray-500 mb-2">Coordenação Acadêmica</p>
-                                    <a href="#" class="text-xs bg-blue-100 hover:bg-blue-200 text-blue-800 py-1 px-3 rounded-full inline-block transition-colors duration-200">
-                                        Falar Agora
-                                    </a>
+                <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover mt-8">
+                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
+                        <i class="fas fa-user-tie text-2xl mr-3 text-[var(--cb-gold)]"></i>
+                        <h2 class="text-xl font-semibold">CONTATOS DIRETOS</h2>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="contact-card bg-gray-50 rounded-lg p-4 text-center hover:bg-blue-50 transition-all duration-300">
+                                <div class="w-16 h-16 mx-auto rounded-full bg-blue-100 flex items-center justify-center text-2xl text-blue-600 mb-2 shadow-inner">
+                                    <i class="fas fa-user-graduate"></i>
                                 </div>
-                                
-                                <div class="contact-card bg-gray-50 rounded-lg p-4 text-center hover:bg-blue-50 transition-all duration-300">
-                                    <div class="w-16 h-16 mx-auto rounded-full bg-blue-100 flex items-center justify-center text-2xl text-blue-600 mb-2 shadow-inner">
-                                        <i class="fas fa-user-tie"></i>
-                                    </div>
-                                    <h3 class="font-medium">Kesema Barreto</h3>
-                                    <p class="text-xs text-gray-500 mb-2">Supervisão Geral</p>
-                                    <a href="#" class="text-xs bg-blue-100 hover:bg-blue-200 text-blue-800 py-1 px-3 rounded-full inline-block transition-colors duration-200">
-                                        Falar Agora
-                                    </a>
-                                </div>
-                                
-                                <div class="contact-card bg-gray-50 rounded-lg p-4 text-center hover:bg-blue-50 transition-all duration-300">
-                                    <div class="w-16 h-16 mx-auto rounded-full bg-blue-100 flex items-center justify-center text-2xl text-blue-600 mb-2 shadow-inner">
-                                        <i class="fas fa-calculator"></i>
-                                    </div>
-                                    <h3 class="font-medium">Cleonice Bezerra</h3>
-                                    <p class="text-xs text-gray-500 mb-2">Direção Geral</p>
-                                    <a href="#" class="text-xs bg-blue-100 hover:bg-blue-200 text-blue-800 py-1 px-3 rounded-full inline-block transition-colors duration-200">
-                                        Falar Agora
-                                    </a>
-                                </div>
+                                <h3 class="font-medium">Emanuel Bezerra</h3>
+                                <p class="text-xs text-gray-500 mb-2">Coordenação Acadêmica</p>
+                                <a href="https://wa.me/5589981267416?text=Ol%C3%A1,%20Emanuel!%20Tenho%20um%20assunto%20para%20tratar%20com%20a%20Coordena%C3%A7%C3%A3o%20Acad%C3%AAmica." target="_blank" class="text-xs bg-blue-100 hover:bg-blue-200 text-blue-800 py-1 px-3 rounded-full inline-block transition-colors duration-200">
+                                    Falar Agora
+                                </a>
                             </div>
                             
-                            <div class="pt-4 border-t border-gray-100">
-                                <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0">
-                                    <div>
-                                        <h3 class="font-medium text-gray-700">Horário de Atendimento</h3>
-                                        <p class="text-sm text-gray-600">Segunda a Sexta: 8h às 18h</p>
-                                    </div>
-                                    <a href="tel:+5511999999999" class="btn btn-blue py-2 px-4 rounded-lg text-sm flex items-center justify-center">
-                                        <i class="fas fa-phone mr-2"></i> Ligar Agora
-                                    </a>
+                            <div class="contact-card bg-gray-50 rounded-lg p-4 text-center hover:bg-blue-50 transition-all duration-300">
+                                <div class="w-16 h-16 mx-auto rounded-full bg-blue-100 flex items-center justify-center text-2xl text-blue-600 mb-2 shadow-inner">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <h3 class="font-medium">Kesema Barreto</h3>
+                                <p class="text-xs text-gray-500 mb-2">Supervisão Geral</p>
+                                <a href="https://wa.me/5589988074857?text=Ol%C3%A1,%20Kesema!%20Tenho%20um%20assunto%20para%20tratar%20com%20a%20Supervis%C3%A3o%20Geral." target="_blank" class="text-xs bg-blue-100 hover:bg-blue-200 text-blue-800 py-1 px-3 rounded-full inline-block transition-colors duration-200">
+                                    Falar Agora
+                                </a>
+                            </div>
+                            
+                            <div class="contact-card bg-gray-50 rounded-lg p-4 text-center hover:bg-blue-50 transition-all duration-300">
+                                <div class="w-16 h-16 mx-auto rounded-full bg-blue-100 flex items-center justify-center text-2xl text-blue-600 mb-2 shadow-inner">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <h3 class="font-medium">Cleonice Bezerra</h3>
+                                <p class="text-xs text-gray-500 mb-2">Direção Geral</p>
+                                <a href="https://wa.me/558981146047?text=Ol%C3%A1,%20Cleonice!%20Gostaria%20de%20registrar%20uma%20sugest%C3%A3o/reclama%C3%A7%C3%A3o%20para%20a%20Dire%C3%A7%C3%A3o%20Geral." target="_blank" class="text-xs bg-blue-100 hover:bg-blue-200 text-blue-800 py-1 px-3 rounded-full inline-block transition-colors duration-200">
+                                    Falar Agora
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-gray-100">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between space-y-3 md:space-y-0">
+                                <div>
+                                    <h3 class="font-medium text-gray-700">Horário de Atendimento</h3>
+                                    <p class="text-sm text-gray-600">Segunda a Sexta: 8h às 18h</p>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </div>
+                    </div>
+                </section>
             </div>
         </main>
 
-        <footer class="py-8 px-4 bg-gray-50 border-t border-gray-200 mt-auto"> <div class="max-w-4xl mx-auto">
+        <footer class="py-8 px-4 bg-gray-50 border-t border-gray-200 mt-auto">
+            <div class="max-w-4xl mx-auto">
                 <div class="flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">
                     <div class="text-center md:text-left">
-                        <h3 class="header-font text-xl text-[var(--cb-blue)]">Instituto CB - Polo Picos</h3>
+                        <h3 class="text-xl font-semibold text-[var(--cb-blue)]">Instituto CB - Polo Picos</h3>
                         <p class="text-sm text-gray-600 mt-1">Educação Profissional de Excelência</p>
                     </div>
                     
                     <div class="flex justify-center space-x-6">
-                        <a href="#" class="social-icon text-gray-500 hover:text-[#e4405f] transform hover:scale-125 transition-transform duration-300">
+                        <a href="https://instagram.com/unifaelpicospi" target="_blank" class="social-icon text-gray-500 hover:text-[#e4405f] transform hover:scale-125 transition-transform duration-300">
                             <i class="fab fa-instagram text-lg"></i>
                         </a>
-                        <a href="#" class="social-icon text-gray-500 hover:text-[#25D366] transform hover:scale-125 transition-transform duration-300">
+                        <a href="https://api.whatsapp.com/send?phone=558988216015" target="_blank" class="social-icon text-gray-500 hover:text-[#25D366] transform hover:scale-125 transition-transform duration-300">
                             <i class="fab fa-whatsapp text-lg"></i>
                         </a>
                     </div>
                 </div>
                 
-                <div class="mt-6 pt-6 border-t border-gray-200 text-center md:text-left">
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-center space-y-2 md:space-y-0">
-                        <p class="text-sm text-gray-600">© 2025 Instituto CB - Polo Picos. Todos os direitos reservados.</p>
-                        
-                        <div class="flex justify-center space-x-4">
-                            <a href="#" class="text-sm text-gray-600 hover:text-[var(--cb-blue)] transition-colors duration-200">Termos de Uso</a>
-                            <a href="#" class="text-sm text-gray-600 hover:text-[var(--cb-blue)] transition-colors duration-200">Política de Privacidade</a>
-                        </div>
-                    </div>
+                <div class="mt-6 pt-6 border-t border-gray-200 text-center">
+                    <p class="text-sm text-gray-600">© 2025 Instituto CB - Polo Picos. Todos os direitos reservados.</p>
                 </div>
             </div>
         </footer>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-            if (document.getElementById('particles-js')) {
-                particlesJS('particles-js', {
-                    "particles": {
-                        "number": {
-                            "value": isMobile ? 20 : 40,
-                            "density": {
-                                "enable": true,
-                                "value_area": 800
-                            }
-                        },
-                        "color": {
-                            "value": ["#0a2463", "#d4af37", "#ffffff"]
-                        },
-                        "shape": {
-                            "type": ["circle", "star", "polygon"],
-                            "stroke": {
-                                "width": 0,
-                                "color": "#000000"
-                            },
-                            "polygon": {
-                                "nb_sides": 5
-                            }
-                        },
-                        "opacity": {
-                            "value": 0.5,
-                            "random": true,
-                            "anim": {
-                                "enable": true,
-                                "speed": 0.8,
-                                "opacity_min": 0.1,
-                                "sync": false
-                            }
-                        },
-                        "size": {
-                            "value": isMobile ? 2.5 : 3.5,
-                            "random": true,
-                            "anim": {
-                                "enable": false,
-                                "speed": 20,
-                                "size_min": 0.1,
-                                "sync": false
-                            }
-                        },
-                        "line_linked": {
-                            "enable": !isMobile,
-                            "distance": 150,
-                            "color": "#adb5bd",
-                            "opacity": 0.3,
-                            "width": 1
-                        },
-                        "move": {
-                            "enable": true,
-                            "speed": isMobile ? 0.6 : 1.2,
-                            "direction": "none",
-                            "random": true,
-                            "straight": false,
-                            "out_mode": "out",
-                            "bounce": false,
-                            "attract": {
-                                "enable": false,
-                                "rotateX": 600,
-                                "rotateY": 1200
-                            }
-                        }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                            "onhover": {
-                                "enable": !isMobile,
-                                "mode": "grab"
-                            },
-                            "onclick": {
-                                "enable": true,
-                                "mode": "push"
-                            },
-                            "resize": true
-                        },
-                        "modes": {
-                            "grab": {
-                                "distance": 100,
-                                "line_linked": {
-                                    "opacity": 0.7
-                                }
-                            },
-                            "bubble": {
-                                "distance": 200,
-                                "size": 20,
-                                "duration": 2,
-                                "opacity": 0.8,
-                                "speed": 3
-                            },
-                            "repulse": {
-                                "distance": 100,
-                                "duration": 0.4
-                            },
-                            "push": {
-                                "particles_nb": 4
-                            },
-                            "remove": {
-                                "particles_nb": 2
-                            }
-                        }
-                    },
-                    "retina_detect": true
-                });
-            }
-
-            // Mobile Menu Toggle
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            if (mobileMenuToggle && mobileMenu) {
-                mobileMenuToggle.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('open');
-                    this.classList.toggle('open');
-                    
-                    const icon = this.querySelector('i');
-                    if (mobileMenu.classList.contains('open')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-            }
-
-            // Accordion functionality
-            const accordionBtns = document.querySelectorAll('.accordion-btn');
-            accordionBtns.forEach(btn => {
-                const content = btn.nextElementSibling;
-                const icon = btn.querySelector('i');
-
-                content.style.maxHeight = null;
-                content.classList.remove('open');
-                if(icon) icon.style.transform = 'rotate(0deg)'; 
-
-                btn.addEventListener('click', function() {
-                    const isOpen = content.classList.contains('open');
-                    
-                    // Close all accordions first
-                    accordionBtns.forEach(otherBtn => {
-                        const otherContent = otherBtn.nextElementSibling;
-                        const otherIcon = otherBtn.querySelector('i');
-                        otherContent.style.maxHeight = null;
-                        otherContent.classList.remove('open');
-                        if(otherIcon) otherIcon.style.transform = 'rotate(0deg)';
-                        otherBtn.classList.remove('active');
-                    });
-
-                    // If the clicked one was not open, open it
-                    if (!isOpen) {
-                        content.style.maxHeight = content.scrollHeight + 'px';
-                        content.classList.add('open');
-                        if(icon) icon.style.transform = 'rotate(180deg)';
-                        btn.classList.add('active');
-                    }
-                });
-            });
-
-            // Institution Button Navigation
-            const institutionBtns = document.querySelectorAll('.institution-btn');
-            const subpages = document.querySelectorAll('.subpage');
-            const mainContent = document.getElementById('main-content');
-            
-            institutionBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    let subpageId;
-                    if (this.classList.contains('btn-cb')) {
-                        subpageId = 'cb-subpage';
-                    } else if (this.classList.contains('btn-unifael')) {
-                        subpageId = 'unifael-subpage';
-                    } else if (this.classList.contains('btn-uninassau')) {
-                        subpageId = 'uninassau-subpage';
-                    }
-                    
-                    if (subpageId) { // Ensure a subpageId was determined
-                        subpages.forEach(page => page.style.display = 'none');
-                        if(mainContent) mainContent.style.display = 'none';
-                        
-                        const targetSubpage = document.getElementById(subpageId);
-                        if (targetSubpage) targetSubpage.style.display = 'block';
-                        
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                });
-            });
-            
-            const backBtns = document.querySelectorAll('.back-btn');
-            backBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    subpages.forEach(page => page.style.display = 'none');
-                    if(mainContent) mainContent.style.display = 'block';
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            });
-
-            const buttons = document.querySelectorAll('.btn');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // Check if the click is on an accordion button, if so, don't ripple
-                    if (this.classList.contains('accordion-btn')) {
-                        return;
-                    }
-
-                    const rect = this.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    const ripple = document.createElement('span');
-                    ripple.classList.add('ripple');
-                    ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) * 2 + 'px';
-                    ripple.style.left = `${x - ripple.offsetWidth / 2}px`;
-                    ripple.style.top = `${y - ripple.offsetHeight / 2}px`;
-                    
-                    // Ensure ripple is appended correctly for different button structures
-                    if (this.classList.contains('institution-btn') || this.children.length > 0 && !this.querySelector('.ripple')) {
-                         // For buttons that might have complex inner structure, ensure ripple is a direct child
-                        this.insertBefore(ripple, this.firstChild);
-                    } else {
-                        this.appendChild(ripple);
-                    }
-                    
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-                });
-            });
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
