@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Técnicos | Instituto CB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* Estilos do Acordeão */
+        .accordion-content {
+            transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.open {
+            max-height: 1000px;
+            opacity: 1;
+        }
+        .rotate-icon {
+            transition: transform 0.3s ease;
+        }
+        .open .rotate-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="content-wrapper">
+        <header class="py-6 px-4 text-center bg-white bg-opacity-90 shadow-md relative z-10">
+            <div class="max-w-6xl mx-auto">
+                <img src="../assets/images/CB.png" alt="Instituto CB Logo" class="w-20 h-20 mx-auto mb-4 rounded-full shadow-lg" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
+                <h1 class="text-4xl md:text-5xl font-bold text-[var(--cb-blue)] mb-1">INSTITUTO CB</h1>
+                <span class="block text-xl md:text-2xl text-[var(--cb-gold)] mt-1 font-semibold">POLO PICOS</span>
+            </div>
+        </header>
+        <main class="flex-grow px-4 py-8">
+            <div class="max-w-md md:max-w-2xl mx-auto">
+                <section class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4">
+                        <h2 class="text-xl font-semibold">Cursos Técnicos</h2>
+                    </div>
+                    
+                    <div class="p-6">
+                        <div class="bg-gray-50 border border-gray-200 p-4 rounded-lg mb-6 text-center shadow-sm">
+                            <h3 class="text-[var(--cb-blue)] font-bold mb-2 uppercase">Objetivo</h3>
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                Preparar o estudante para atuar no mercado de trabalho com foco na aplicação de conhecimentos teóricos e práticos.
+                            </p>
+                        </div>
+
+                        <div class="mb-8 border-2 border-[var(--cb-blue)] rounded-xl overflow-hidden shadow-sm">
+                            <div class="bg-blue-50 p-4 border-b border-blue-100 flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <span class="bg-[var(--cb-blue)] text-white p-2 rounded-full mr-3 shadow-sm">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                    </span>
+                                    <h3 class="text-xl font-bold text-[var(--cb-blue)]">Presencial</h3>
+                                </div>
+                                <span class="text-xs font-bold text-white bg-green-500 px-2 py-1 rounded-full uppercase tracking-wider">Matrículas Abertas</span>
+                            </div>
+                            <div class="p-4 bg-white">
+                                <ul class="space-y-3">
+                                    <li class="flex items-center p-2 hover:bg-gray-50 rounded transition-colors">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i> 
+                                        <span class="font-medium text-gray-800">Técnico em Enfermagem</span>
+                                    </li>
+                                    <li class="flex items-center p-2 hover:bg-gray-50 rounded transition-colors">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i> 
+                                        <span class="font-medium text-gray-800">Técnico em Análises Clínicas</span>
+                                    </li>
+                                    <li class="flex items-center p-2 hover:bg-gray-50 rounded transition-colors">
+                                        <i class="fas fa-check-circle text-green-500 mr-3 text-lg"></i> 
+                                        <span class="font-medium text-gray-800">Técnico em Saúde Bucal</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex items-center mb-4 px-2">
+                                <span class="bg-[var(--cb-gold)] text-[var(--dark-blue)] p-2 rounded-full mr-3 shadow-sm">
+                                    <i class="fas fa-laptop-house"></i>
+                                </span>
+                                <h3 class="text-xl font-bold text-[var(--cb-blue)] border-b-2 border-[var(--cb-gold)] pb-1 w-full">
+                                    EAD (100% Online)
+                                </h3>
+                            </div>
+                            
+                            <div class="text-sm text-gray-600 bg-yellow-50 border border-yellow-100 p-3 rounded mb-6 mx-1">
+                                <p class="flex items-center gap-2"><i class="fas fa-clock text-[var(--cb-gold)]"></i> <strong>Prazo:</strong> 6 a 12 meses</p>
+                                <p class="flex items-center gap-2 mt-1"><i class="fas fa-certificate text-[var(--cb-gold)]"></i> <strong>Certificado:</strong> Válido em todo o Brasil</p>
+                            </div>
+
+                            <div class="mb-3 border border-gray-200 rounded-lg overflow-hidden">
+                                <button onclick="toggleAccordion('gestao')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
+                                    <span class="font-bold text-[var(--cb-blue)] flex items-center">
+                                        <i class="fas fa-briefcase mr-3 text-[var(--cb-gold)] w-5 text-center"></i>Gestão e Negócios
+                                    </span>
+                                    <i id="icon-gestao" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
+                                </button>
+                                <div id="gestao" class="accordion-content bg-white">
+                                    <ul class="p-4 grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-700 border-t border-gray-100">
+                                        <li>• Técnico em Administração</li>
+                                        <li>• Técnico em Contabilidade</li>
+                                        <li>• Técnico em Finanças</li>
+                                        <li>• Técnico em Logística</li>
+                                        <li>• Técnico em Marketing</li>
+                                        <li>• Técnico em Qualidade</li>
+                                        <li>• Técnico em Recursos Humanos</li>
+                                        <li>• Técnico em Secretaria Escolar</li>
+                                        <li>• Técnico em Serviços Jurídicos</li>
+                                        <li>• Técnico em Transações Imobiliárias</li>
+                                        <li>• Técnico em Vendas</li>
+                                        <li>• Técnico em Guia de Turismo</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 border border-gray-200 rounded-lg overflow-hidden">
+                                <button onclick="toggleAccordion('saude')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
+                                    <span class="font-bold text-[var(--cb-blue)] flex items-center">
+                                        <i class="fas fa-heartbeat mr-3 text-[var(--cb-gold)] w-5 text-center"></i>Saúde e Veterinária
+                                    </span>
+                                    <i id="icon-saude" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
+                                </button>
+                                <div id="saude" class="accordion-content bg-white">
+                                    <ul class="p-4 grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-700 border-t border-gray-100">
+                                        <li>• Técnico em Agente Comunitário de Saúde</li>
+                                        <li>• Técnico em Análises Clínicas</li>
+                                        <li>• Técnico em Cuidador De Idosos</li>
+                                        <li>• Técnico em Estética</li>
+                                        <li>• Técnico em Farmácia</li>
+                                        <li>• Técnico em Nutrição e Dietética</li>
+                                        <li>• Técnico em Prótese Dentária</li>
+                                        <li>• Técnico em Saúde Bucal</li>
+                                        <li>• Técnico em Veterinária</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 border border-gray-200 rounded-lg overflow-hidden">
+                                <button onclick="toggleAccordion('industria')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
+                                    <span class="font-bold text-[var(--cb-blue)] flex items-center">
+                                        <i class="fas fa-industry mr-3 text-[var(--cb-gold)] w-5 text-center"></i>Indústria e Infraestrutura
+                                    </span>
+                                    <i id="icon-industria" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
+                                </button>
+                                <div id="industria" class="accordion-content bg-white">
+                                    <ul class="p-4 grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-700 border-t border-gray-100">
+                                        <li>• Técnico em Agrimensura</li>
+                                        <li>• Técnico em Automação Industrial</li>
+                                        <li>• Técnico em Edificações</li>
+                                        <li>• Técnico em Eletromecânica</li>
+                                        <li>• Técnico em Eletrônica</li>
+                                        <li>• Técnico em Eletrotécnica</li>
+                                        <li>• Técnico em Manutenção Automotiva</li>
+                                        <li>• Técnico em Manutenção de Máquinas</li>
+                                        <li>• Técnico em Mecatrônica</li>
+                                        <li>• Técnico em Papel E Celulose</li>
+                                        <li>• Técnico em Química</li>
+                                        <li>• Técnico em Refrigeração E Climatização</li>
+                                        <li>• Técnico em Segurança Do Trabalho</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 border border-gray-200 rounded-lg overflow-hidden">
+                                <button onclick="toggleAccordion('tecnologia')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
+                                    <span class="font-bold text-[var(--cb-blue)] flex items-center">
+                                        <i class="fas fa-laptop-code mr-3 text-[var(--cb-gold)] w-5 text-center"></i>Tecnologia e Design
+                                    </span>
+                                    <i id="icon-tecnologia" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
+                                </button>
+                                <div id="tecnologia" class="accordion-content bg-white">
+                                    <ul class="p-4 grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-700 border-t border-gray-100">
+                                        <li>• Técnico em Computação Gráfica</li>
+                                        <li>• Técnico em Design Gráfico</li>
+                                        <li>• Técnico em Desenvolvimento de Sistemas</li>
+                                        <li>• Técnico em Inteligência Artificial</li>
+                                        <li>• Técnico em Informática para Internet</li>
+                                        <li>• Técnico em Redes de Computadores</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mb-3 border border-gray-200 rounded-lg overflow-hidden">
+                                <button onclick="toggleAccordion('agro')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
+                                    <span class="font-bold text-[var(--cb-blue)] flex items-center">
+                                        <i class="fas fa-leaf mr-3 text-[var(--cb-gold)] w-5 text-center"></i>Meio Ambiente e Agro
+                                    </span>
+                                    <i id="icon-agro" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
+                                </button>
+                                <div id="agro" class="accordion-content bg-white">
+                                    <ul class="p-4 grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-700 border-t border-gray-100">
+                                        <li>• Técnico em Agricultura</li>
+                                        <li>• Técnico em Agroindústria</li>
+                                        <li>• Técnico em Agronegócios</li>
+                                        <li>• Técnico em Agropecuária</li>
+                                        <li>• Técnico em Energia Renovável</li>
+                                        <li>• Técnico em Meio Ambiente</li>
+                                        <li>• Técnico em Sist. de Energia Renovável</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-8 space-y-3">
+                            <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20Cursos%20T%C3%A9cnicos." target="_blank" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
+                                <i class="fab fa-whatsapp mr-2"></i>
+                                <span>Fale Conosco</span>
+                            </a>
+                            <a href="../index.html" class="btn btn-gold block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
+                                <i class="fas fa-arrow-left mr-2"></i>
+                                <span>Voltar</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer class="py-8 px-4 bg-gray-50 border-t border-gray-200 mt-auto">
+            <div class="max-w-4xl mx-auto text-center text-sm text-gray-600">
+                <p>&copy; Instituto CB - Polo Picos</p>
+            </div>
+        </footer>
+    </div>
+    <script src="../assets/js/script.js"></script>
+
+    <script>
+        function toggleAccordion(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            const isOpen = content.classList.contains('open');
+
+            // Fecha todos (opcional)
+            document.querySelectorAll('.accordion-content').forEach(el => {
+                el.classList.remove('open');
+            });
+            document.querySelectorAll('.rotate-icon').forEach(el => {
+                el.style.transform = 'rotate(0deg)';
+            });
+
+            // Abre o atual se não estava aberto
+            if (!isOpen) {
+                content.classList.add('open');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>
