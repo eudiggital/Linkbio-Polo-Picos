@@ -10,55 +10,77 @@
 </head>
 <body class="min-h-screen">
     <div class="content-wrapper">
-        <header class="py-6 px-4 text-center bg-white bg-opacity-90 shadow-md relative z-10">
-            <div class="max-w-6xl mx-auto">
-                <img src="../assets/images/CB.png" alt="Instituto CB Logo" class="w-20 h-20 mx-auto mb-4 rounded-full shadow-lg" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
-                <h1 class="text-4xl md:text-5xl font-bold text-[var(--cb-blue)] mb-1">INSTITUTO CB</h1>
-                <span class="block text-xl md:text-2xl text-[var(--cb-gold)] mt-1 font-semibold">POLO PICOS</span>
+        
+        <header class="py-3 px-4 bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300">
+            <div class="max-w-4xl mx-auto flex flex-row items-center justify-center gap-3">
+                <a href="../index.html">
+                    <img src="../assets/images/CB.png" alt="Instituto CB Logo" class="w-12 h-12 md:w-14 md:h-14 rounded-full shadow-sm border border-gray-100">
+                </a>
+                <div class="text-left">
+                    <h1 class="text-lg md:text-2xl font-bold text-[var(--cb-blue)] leading-none">INSTITUTO CB</h1>
+                    <span class="text-xs md:text-sm text-[var(--cb-gold)] font-bold tracking-wider uppercase block mt-0.5">Polo Picos</span>
+                </div>
             </div>
         </header>
-        <main class="flex-grow px-4 py-8">
-            <div class="max-w-md md:max-w-2xl mx-auto">
-                <section class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4">
-                        <h2 class="text-xl font-semibold">EJA - Educação de Jovens e Adultos</h2>
-                    </div>
-                    <div class="p-6">
+
+        <main class="flex-grow px-4 py-8 w-full max-w-2xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover animate-fade-in-down">
+                <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-4 px-6 flex items-center">
+                    <a href="../index.html" class="mr-4 text-white/80 hover:text-white transition-colors"><i class="fas fa-arrow-left"></i></a>
+                    <h2 class="text-lg font-bold tracking-wide">EJA (Supletivo)</h2>
+                </div>
+                
+                <div class="p-6 md:p-8">
+                    
+                    <div class="bg-blue-50 border border-blue-100 p-5 rounded-xl mb-8">
+                        <h3 class="font-bold text-[var(--cb-blue)] text-lg mb-4 flex items-center gap-2">
+                            <i class="fas fa-graduation-cap"></i> Conclusão de Ensino
+                        </h3>
                         
-                        <div class="bg-blue-50 border-l-4 border-[var(--cb-blue)] p-4 mb-6 rounded-r-lg">
-                            <p class="font-medium text-gray-800 text-lg mb-2">Conclusão de Ensino Fundamental e Médio</p>
-                            <ul class="space-y-3 mt-3">
-                                <li class="flex items-start">
-                                    <i class="fas fa-clock text-[var(--cb-gold)] mt-1 mr-3"></i>
-                                    <span><strong>Duração:</strong> De 04 a 06 meses.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-user-check text-[var(--cb-gold)] mt-1 mr-3"></i>
-                                    <span><strong>Idade mínima:</strong> 19 anos.</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <i class="fas fa-laptop-house text-[var(--cb-gold)] mt-1 mr-3"></i>
-                                    <span>Aulas ao Vivo, Videoaulas, Atividades, Avaliações e muito mais...</span>
-                                </li>
-                            </ul>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-3 rounded-lg border border-blue-50 shadow-sm flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[var(--cb-blue)]">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase">Duração</p>
+                                    <p class="text-sm font-semibold text-gray-800">04 a 06 meses</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-white p-3 rounded-lg border border-blue-50 shadow-sm flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[var(--cb-blue)]">
+                                    <i class="fas fa-user-check"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-500 font-bold uppercase">Idade Mínima</p>
+                                    <p class="text-sm font-semibold text-gray-800">19 anos</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="mt-8 space-y-3">
-                            <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20EJA." target="_blank" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
-                                <i class="fab fa-whatsapp mr-2"></i>
-                                <span>Matricule-se Agora</span>
-                            </a>
-                            <a href="../index.html" class="btn btn-gold block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
-                                <i class="fas fa-arrow-left mr-2"></i>
-                                <span>Voltar</span>
-                            </a>
+                        <div class="mt-4 pt-4 border-t border-blue-100 text-sm text-gray-700 flex items-start gap-2">
+                            <i class="fas fa-laptop-house text-[var(--cb-gold)] mt-1"></i>
+                            <span>Aulas ao Vivo, Videoaulas, Atividades, Avaliações e muito mais...</span>
                         </div>
                     </div>
-                </section>
+
+                    <div class="space-y-3">
+                        <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20o%20EJA." target="_blank" class="btn btn-blue w-full rounded-xl py-4 font-bold flex items-center justify-center gap-2 shadow-md">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                            <span>Matricule-se Agora</span>
+                        </a>
+                        <a href="../index.html" class="btn btn-blue-light w-full rounded-xl py-4 font-bold flex items-center justify-center gap-2">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Voltar ao Início</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </main>
-        <footer class="py-8 px-4 bg-gray-50 border-t border-gray-200 mt-auto">
-            <div class="max-w-4xl mx-auto text-center text-sm text-gray-600">
+        
+        <footer class="py-6 px-4 border-t border-gray-200/50 bg-white/50 backdrop-blur-sm mt-auto">
+            <div class="max-w-4xl mx-auto text-center text-xs text-gray-500">
                 <p>&copy; Instituto CB - Polo Picos</p>
             </div>
         </footer>

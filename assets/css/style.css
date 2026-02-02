@@ -4,42 +4,68 @@
     --cb-blue: #0a2463;
     --cb-gold: #d4af37;
     --light-blue: #3e92cc;
-    --white: #fffaff;
+    --white: #ffffff;
     --dark-blue: #071a3b;
-    --bg-light: #f0f2f5;
+    --bg-light: #f8fafc; /* Um cinza muito suave, quase branco */
+    --text-main: #1f2937;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--bg-light);
-    color: #333;
+    color: var(--text-main);
     overflow-x: hidden;
     line-height: 1.6;
+    /* Padrão geométrico sutil (Grid Institucional) */
+    background-image: 
+        linear-gradient(to right, rgba(10, 36, 99, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(10, 36, 99, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    min-height: 100vh;
 }
 
+/* Utilitário para garantir que o conteúdo fique acima do fundo */
+.content-wrapper {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    backdrop-filter: blur(0px); /* Correção para alguns browsers mobile */
+}
+
+/* --- Botões Modernos --- */
 .btn {
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform: translateY(0);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     position: relative;
     overflow: hidden;
     z-index: 1;
+    border: none;
+    /* Garante altura mínima para toque em mobile */
+    min-height: 3.5rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.3;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .btn:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Efeito Ripple (Onda ao clicar) */
 .ripple {
     position: absolute;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.5);
     animation: ripple-animation 0.6s linear forwards;
     transform: scale(0);
     pointer-events: none;
@@ -47,7 +73,7 @@ body {
 }
 
 .btn-gold .ripple {
-     background: rgba(0, 0, 0, 0.1);
+     background: rgba(0, 0, 0, 0.15);
 }
 
 @keyframes ripple-animation {
@@ -57,66 +83,62 @@ body {
     }
 }
 
+/* Cores dos Botões com Degradês mais Suaves */
 .btn-gold {
-    background: linear-gradient(135deg, var(--cb-gold) 0%, #f1c40f 100%);
+    background: linear-gradient(135deg, #eecda3 0%, #ef629f 0%, var(--cb-gold) 0%, #f1c40f 100%);
+    /* Ajuste para garantir legibilidade no dourado */
+    background: linear-gradient(135deg, #d4af37 0%, #f6d365 100%); 
     color: var(--dark-blue);
-}
-
-.btn-gold:hover {
-    background: linear-gradient(135deg, #f1c40f 0%, var(--cb-gold) 100%);
+    font-weight: 600;
 }
 
 .btn-blue {
-    background: linear-gradient(135deg, var(--cb-blue) 0%, var(--light-blue) 100%);
+    background: linear-gradient(135deg, var(--cb-blue) 0%, #1e40af 100%);
     color: white;
 }
 
-.btn-blue:hover {
-    background: linear-gradient(135deg, var(--light-blue) 0%, var(--cb-blue) 100%);
+.btn-blue-light {
+    background: white;
+    color: var(--cb-blue);
+    border: 1px solid #e5e7eb;
+}
+.btn-blue-light:hover {
+    background: #f0f9ff;
+    border-color: var(--light-blue);
+    color: var(--dark-blue);
 }
 
 .btn-red {
-    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
     color: white;
 }
 
-.btn-red:hover {
-    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
-}
-
+/* --- Cards e Containers --- */
 .card-hover {
+    background: rgba(255, 255, 255, 0.95); /* Leve transparência */
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 1rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(5px);
 }
 
 .card-hover:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    border-color: rgba(10, 36, 99, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.03); }
-    100% { transform: scale(1); }
+/* Animação suave de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    background: linear-gradient(180deg, var(--bg-light) 0%, rgba(248, 249, 250, 0.8) 100%);
+.animate-fade-in-down {
+    animation: fadeIn 0.8s ease-out forwards;
 }
 
-.content-wrapper {
-    position: relative;
-    z-index: 1;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+/* Responsividade de Texto */
+h1, h2, h3 {
+    text-wrap: balance; /* Evita viúvas em títulos (Chrome/novos browsers) */
 }

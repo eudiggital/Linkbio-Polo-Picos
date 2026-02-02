@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-        /* Animação suave para o Acordeão */
         .accordion-content {
             transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
             max-height: 0;
@@ -17,423 +16,449 @@
             overflow: hidden;
         }
         .accordion-content.open {
-            max-height: 2000px; /* Altura suficiente para o conteúdo */
+            max-height: 4000px; /* Aumentei bastante pois a lista de Gestão é grande */
             opacity: 1;
         }
         .rotate-icon {
             transition: transform 0.3s ease;
         }
-        .open .rotate-icon {
-            transform: rotate(180deg);
-        }
     </style>
 </head>
 <body class="min-h-screen">
     <div class="content-wrapper">
-        <header class="py-6 px-4 text-center bg-white bg-opacity-90 shadow-md relative z-10">
-            <div class="max-w-6xl mx-auto">
-                <img src="../assets/images/CB.png" alt="Instituto CB Logo" class="w-20 h-20 mx-auto mb-4 rounded-full shadow-lg" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
-                <h1 class="text-4xl md:text-5xl font-bold text-[var(--cb-blue)] mb-1">INSTITUTO CB</h1>
-                <span class="block text-xl md:text-2xl text-[var(--cb-gold)] mt-1 font-semibold">POLO PICOS</span>
+        
+        <header class="py-3 px-4 bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300">
+            <div class="max-w-4xl mx-auto flex flex-row items-center justify-center gap-3">
+                <a href="../index.html">
+                    <img src="../assets/images/CB.png" alt="Instituto CB Logo" class="w-12 h-12 md:w-14 md:h-14 rounded-full shadow-sm border border-gray-100">
+                </a>
+                <div class="text-left">
+                    <h1 class="text-lg md:text-2xl font-bold text-[var(--cb-blue)] leading-none">
+                        INSTITUTO CB
+                    </h1>
+                    <span class="text-xs md:text-sm text-[var(--cb-gold)] font-bold tracking-wider uppercase block mt-0.5">
+                        Polo Picos
+                    </span>
+                </div>
             </div>
         </header>
-        <main class="flex-grow px-4 py-8">
-            <div class="max-w-md md:max-w-2xl mx-auto">
-                <section class="bg-white rounded-xl shadow-md overflow-hidden">
-                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4">
-                        <h2 class="text-xl font-semibold">Catálogo de Pós-Graduação</h2>
-                    </div>
-                    <div class="p-6">
-                        <div class="mb-6 text-gray-700 bg-blue-50 p-4 rounded-lg text-center border border-blue-100">
-                             <p class="font-bold text-[var(--cb-blue)] mb-1 text-lg">Escolha sua área de interesse</p>
-                             <p class="text-sm text-gray-600">Clique nas categorias abaixo para ver a lista completa de cursos.</p>
-                        </div>
 
-                        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleAccordion('design')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
-                                <span class="font-bold text-[var(--cb-blue)] flex items-center"><i class="fas fa-pencil-ruler mr-3 text-[var(--cb-gold)] w-5"></i>DESIGN</span>
+        <main class="flex-grow px-4 py-8 w-full max-w-3xl mx-auto">
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover animate-fade-in-down">
+                
+                <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-4 px-6 flex items-center">
+                    <a href="../index.html" class="mr-4 text-white/80 hover:text-white transition-colors">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <h2 class="text-lg font-bold tracking-wide">PÓS-GRADUAÇÃO</h2>
+                </div>
+
+                <div class="p-5 md:p-8">
+                    <div class="mb-6 text-gray-700 bg-blue-50 p-4 rounded-lg text-center border border-blue-100 shadow-sm">
+                         <p class="font-bold text-[var(--cb-blue)] mb-1 text-sm md:text-base uppercase">Escolha sua área de interesse</p>
+                         <p class="text-xs md:text-sm text-gray-600">Clique nas categorias abaixo para expandir a lista completa.</p>
+                    </div>
+
+                    <div class="space-y-3">
+                        
+                        <div class="border border-gray-200 rounded-xl overflow-hidden transition-colors hover:border-[var(--cb-blue)]">
+                            <button onclick="toggleAccordion('design')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-white transition-colors text-left focus:outline-none group">
+                                <span class="font-bold text-[var(--cb-blue)] flex items-center text-sm md:text-base">
+                                    <i class="fas fa-pencil-ruler mr-3 text-gray-400 group-hover:text-[var(--cb-gold)] transition-colors w-5 text-center"></i>DESIGN
+                                </span>
                                 <i id="icon-design" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
                             </button>
                             <div id="design" class="accordion-content bg-white">
-                                <ul class="p-4 space-y-2 text-gray-700 text-sm border-t border-gray-100">
-                                    <li class="flex justify-between border-b border-gray-50 pb-1"><span>Design de Interiores</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded ml-2">12 meses</span></li>
-                                    <li class="flex justify-between border-b border-gray-50 pb-1"><span>Design de Interiores com Ênfase em Projetos Comerciais</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded ml-2">12 meses</span></li>
-                                    <li class="flex justify-between border-b border-gray-50 pb-1"><span>Design de Projetos Comerciais</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded ml-2">6 meses</span></li>
-                                    <li class="flex justify-between border-b border-gray-50 pb-1"><span>MBA em Inovação, Design e Estratégia</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded ml-2">15 meses</span></li>
-                                    <li class="flex justify-between border-b border-gray-50 pb-1"><span>Projetos de Design de Interiores</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded ml-2">6 meses</span></li>
-                                    <li class="flex justify-between border-b border-gray-50 pb-1"><span>Projetos de Interiores e Sustentabilidade</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded ml-2">6 meses</span></li>
-                                    <li class="flex justify-between border-b border-gray-50 pb-1"><span>Projetos de Interiores Sustentáveis</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded ml-2">12 meses</span></li>
-                                    <li class="flex justify-between border-b border-gray-50 pb-1"><span>User Experience Design</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded ml-2">12 meses</span></li>
-                                    <li class="flex justify-between border-b border-gray-50 pb-1"><span>UX/UI Design</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded ml-2">12 meses</span></li>
-                                    <li class="flex justify-between border-b border-gray-50 pb-1"><span>UX Design</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded ml-2">6 meses</span></li>
+                                <ul class="p-4 space-y-2 text-gray-600 text-sm border-t border-gray-100">
+                                    <li class="flex flex-col sm:flex-row justify-between border-b border-gray-50 pb-1"><span>Design de Interiores</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded sm:ml-2 w-fit mt-1 sm:mt-0">12 meses</span></li>
+                                    <li class="flex flex-col sm:flex-row justify-between border-b border-gray-50 pb-1"><span>Design de Interiores com Ênfase em Projetos Comerciais</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded sm:ml-2 w-fit mt-1 sm:mt-0">12 meses</span></li>
+                                    <li class="flex flex-col sm:flex-row justify-between border-b border-gray-50 pb-1"><span>Design de Projetos Comerciais</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded sm:ml-2 w-fit mt-1 sm:mt-0">6 meses</span></li>
+                                    <li class="flex flex-col sm:flex-row justify-between border-b border-gray-50 pb-1"><span>MBA em Inovação, Design e Estratégia</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded sm:ml-2 w-fit mt-1 sm:mt-0">15 meses</span></li>
+                                    <li class="flex flex-col sm:flex-row justify-between border-b border-gray-50 pb-1"><span>Projetos de Design de Interiores</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded sm:ml-2 w-fit mt-1 sm:mt-0">6 meses</span></li>
+                                    <li class="flex flex-col sm:flex-row justify-between border-b border-gray-50 pb-1"><span>Projetos de Interiores e Sustentabilidade</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded sm:ml-2 w-fit mt-1 sm:mt-0">6 meses</span></li>
+                                    <li class="flex flex-col sm:flex-row justify-between border-b border-gray-50 pb-1"><span>Projetos de Interiores Sustentáveis</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded sm:ml-2 w-fit mt-1 sm:mt-0">12 meses</span></li>
+                                    <li class="flex flex-col sm:flex-row justify-between border-b border-gray-50 pb-1"><span>User Experience Design</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded sm:ml-2 w-fit mt-1 sm:mt-0">12 meses</span></li>
+                                    <li class="flex flex-col sm:flex-row justify-between border-b border-gray-50 pb-1"><span>UX/UI Design</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded sm:ml-2 w-fit mt-1 sm:mt-0">12 meses</span></li>
+                                    <li class="flex flex-col sm:flex-row justify-between border-b border-gray-50 pb-1"><span>UX Design</span> <span class="font-semibold text-xs bg-blue-50 text-blue-700 py-0.5 px-2 rounded sm:ml-2 w-fit mt-1 sm:mt-0">6 meses</span></li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleAccordion('direito')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
-                                <span class="font-bold text-[var(--cb-blue)] flex items-center"><i class="fas fa-balance-scale mr-3 text-[var(--cb-gold)] w-5"></i>DIREITO</span>
+                        <div class="border border-gray-200 rounded-xl overflow-hidden transition-colors hover:border-[var(--cb-blue)]">
+                            <button onclick="toggleAccordion('direito')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-white transition-colors text-left focus:outline-none group">
+                                <span class="font-bold text-[var(--cb-blue)] flex items-center text-sm md:text-base">
+                                    <i class="fas fa-balance-scale mr-3 text-gray-400 group-hover:text-[var(--cb-gold)] transition-colors w-5 text-center"></i>DIREITO
+                                </span>
                                 <i id="icon-direito" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
                             </button>
                             <div id="direito" class="accordion-content bg-white">
-                                <ul class="p-4 space-y-2 text-gray-700 text-sm border-t border-gray-100">
-                                    <li>Administração Pública e Direito Público (6 meses)</li>
-                                    <li>Ciências Criminais (12 meses)</li>
-                                    <li>Comunicação e Português Jurídico (6 meses)</li>
-                                    <li>Direito Ambiental (12 meses)</li>
-                                    <li>Direito Ambiental e Sustentabilidade (12 meses)</li>
-                                    <li>Direito Civil (6 meses)</li>
-                                    <li>Direito Civil e Processo Civil (12 meses)</li>
-                                    <li>Direito Digital, Inovação e Startups (12 meses)</li>
-                                    <li>Direito do Consumidor (12 meses)</li>
-                                    <li>Direito do Trabalho (6 meses)</li>
-                                    <li>Direito do Trabalho e Previdenciário (12 meses)</li>
-                                    <li>Direito Eleitoral (12 meses)</li>
-                                    <li>Direito e Meio Ambiente (6 meses)</li>
-                                    <li>Direito Empresarial (12 meses)</li>
-                                    <li>Direito Imobiliário (12 meses)</li>
-                                    <li>Direito Licitatório e Contratações Públicas (12 meses)</li>
-                                    <li>Direito Marítimo, Portuário e do Petróleo (12 meses)</li>
-                                    <li>Direito Material e Processual do Trabalho (12 meses)</li>
-                                    <li>Direito Militar (12 meses)</li>
-                                    <li>Direito nas Relações de Consumo (6 meses)</li>
-                                    <li>Direito Penal e Processo Penal (12 meses)</li>
-                                    <li>Direito Processual: Administrativo, Civil, Constitucional, Penal, Trabalhista e Tributário (12 meses)</li>
-                                    <li>Direito Processual: Constitucional, Civil, Penal e Trabalhista (12 meses)</li>
-                                    <li>Direito Público (12 meses)</li>
-                                    <li>Direito Público com Ênfase em Constitucional e Administrativo (12 meses)</li>
-                                    <li>Direito Público: Constitucional, Administrativo e Tributário (12 meses)</li>
-                                    <li>Direito Público e Administração Pública (12 meses)</li>
-                                    <li>Direito Público e Organização Pública (6 meses)</li>
-                                    <li>Direito Tributário (12 meses)</li>
-                                    <li>Estudos Forense e Criminal Aplicados (15 meses)</li>
-                                    <li>Legislação Eleitoral (6 meses)</li>
-                                    <li>Políticas Educacionais e Educação Democrática (12 meses)</li>
-                                    <li>Português Jurídico (12 meses)</li>
-                                    <li>Solução de Conflitos: Mediação e Arbitragem (12 meses)</li>
-                                    <li>Violência de Gênero: Direito, Saúde e Diversidade (12 meses)</li>
+                                <ul class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-600 border-t border-gray-100">
+                                    <li>• Administração Pública e Direito Público (6 meses)</li>
+                                    <li>• Ciências Criminais (12 meses)</li>
+                                    <li>• Comunicação e Português Jurídico (6 meses)</li>
+                                    <li>• Direito Ambiental (12 meses)</li>
+                                    <li>• Direito Ambiental e Sustentabilidade (12 meses)</li>
+                                    <li>• Direito Civil (6 meses)</li>
+                                    <li>• Direito Civil e Processo Civil (12 meses)</li>
+                                    <li>• Direito Digital, Inovação e Startups (12 meses)</li>
+                                    <li>• Direito do Consumidor (12 meses)</li>
+                                    <li>• Direito do Trabalho (6 meses)</li>
+                                    <li>• Direito do Trabalho e Previdenciário (12 meses)</li>
+                                    <li>• Direito Eleitoral (12 meses)</li>
+                                    <li>• Direito e Meio Ambiente (6 meses)</li>
+                                    <li>• Direito Empresarial (12 meses)</li>
+                                    <li>• Direito Imobiliário (12 meses)</li>
+                                    <li>• Direito Licitatório e Contratações Públicas (12 meses)</li>
+                                    <li>• Direito Marítimo, Portuário e do Petróleo (12 meses)</li>
+                                    <li>• Direito Material e Processual do Trabalho (12 meses)</li>
+                                    <li>• Direito Militar (12 meses)</li>
+                                    <li>• Direito nas Relações de Consumo (6 meses)</li>
+                                    <li>• Direito Penal e Processo Penal (12 meses)</li>
+                                    <li>• Direito Processual: Administrativo, Civil, Constitucional, Penal, Trabalhista e Tributário (12 meses)</li>
+                                    <li>• Direito Processual: Constitucional, Civil, Penal e Trabalhista (12 meses)</li>
+                                    <li>• Direito Público (12 meses)</li>
+                                    <li>• Direito Público com Ênfase em Constitucional e Administrativo (12 meses)</li>
+                                    <li>• Direito Público: Constitucional, Administrativo e Tributário (12 meses)</li>
+                                    <li>• Direito Público e Administração Pública (12 meses)</li>
+                                    <li>• Direito Público e Organização Pública (6 meses)</li>
+                                    <li>• Direito Tributário (12 meses)</li>
+                                    <li>• Estudos Forense e Criminal Aplicados (15 meses)</li>
+                                    <li>• Legislação Eleitoral (6 meses)</li>
+                                    <li>• Políticas Educacionais e Educação Democrática (12 meses)</li>
+                                    <li>• Português Jurídico (12 meses)</li>
+                                    <li>• Solução de Conflitos: Mediação e Arbitragem (12 meses)</li>
+                                    <li>• Violência de Gênero: Direito, Saúde e Diversidade (12 meses)</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleAccordion('educacao')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
-                                <span class="font-bold text-[var(--cb-blue)] flex items-center"><i class="fas fa-book-reader mr-3 text-[var(--cb-gold)] w-5"></i>EDUCAÇÃO</span>
+                        <div class="border border-gray-200 rounded-xl overflow-hidden transition-colors hover:border-[var(--cb-blue)]">
+                            <button onclick="toggleAccordion('educacao')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-white transition-colors text-left focus:outline-none group">
+                                <span class="font-bold text-[var(--cb-blue)] flex items-center text-sm md:text-base">
+                                    <i class="fas fa-book-reader mr-3 text-gray-400 group-hover:text-[var(--cb-gold)] transition-colors w-5 text-center"></i>EDUCAÇÃO
+                                </span>
                                 <i id="icon-educacao" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
                             </button>
                             <div id="educacao" class="accordion-content bg-white">
-                                <ul class="p-4 space-y-2 text-gray-700 text-sm border-t border-gray-100">
-                                    <li>Alfabetização e Letramento (12 meses)</li>
-                                    <li>Antropologia e Fundamentos da Educação Social (12 meses)</li>
-                                    <li>Aulas On-line para Educação Básica (4 meses)</li>
-                                    <li>Didática e Metodologia do Ensino de Geografia (12 meses)</li>
-                                    <li>Didática e Metodologia do Ensino de Língua Portuguesa (12 meses)</li>
-                                    <li>Docência da Educação Superior (6 meses)</li>
-                                    <li>Docência do Ensino Superior (12 meses)</li>
-                                    <li>Docência e Gestão do Ensino Superior (12 meses)</li>
-                                    <li>Docência no Novo Ensino Médio (12 meses)</li>
-                                    <li>Educação com Ênfase no Processo de Formação Étnico-Racial (6 meses)</li>
-                                    <li>Educação em Meio Ambiente (6 meses)</li>
-                                    <li>Educação Especial (12 meses)</li>
-                                    <li>Educação Especial e Inclusiva (6 meses)</li>
-                                    <li>Educação Infantil (12 meses)</li>
-                                    <li>Educação Infantil e Alfabetização (6 meses)</li>
-                                    <li>Educação, Jogos e Ludicidade para o Ensino (12 meses)</li>
-                                    <li>Filosofia na Educação com Ênfase no Processo de Formação Étnico-Racial (12 meses)</li>
-                                    <li>Fundamentos da Educação Social e Antropologia (6 meses)</li>
-                                    <li>Gestão da Educação (12 meses)</li>
-                                    <li>Gestão Educacional (6 meses)</li>
-                                    <li>Gestão Escolar (12 meses)</li>
-                                    <li>Gestão Estratégica Educacional (12 meses)</li>
-                                    <li>Gestão Pedagógica no Ensino Superior (6 meses)</li>
-                                    <li>Libras, Saúde e Educação Especial e Inclusiva (12 meses)</li>
-                                    <li>Língua Portuguesa - Redação (6 meses)</li>
-                                    <li>Língua Portuguesa: Redação e Oratória (12 meses)</li>
-                                    <li>Linguística e Ensino da Língua Portuguesa (12 meses)</li>
-                                    <li>Ludicidade Aplicada em Educação (6 meses)</li>
-                                    <li>Mediação e Gestão de Conflitos Escolar (12 meses)</li>
-                                    <li>Metodologia do Ensino a Distância (12 meses)</li>
-                                    <li>Metodologia do Ensino da Língua Portuguesa (6 meses)</li>
-                                    <li>Metodologia e Didática do Ensino da Geografia (6 meses)</li>
-                                    <li>Metodologias Ativas como Práticas Inovadoras na Educação (6 meses)</li>
-                                    <li>Metodologias da Educação a Distância (6 meses)</li>
-                                    <li>Neuroeducação (12 meses)</li>
-                                    <li>Orientação e Supervisão Escolar (12 meses)</li>
-                                    <li>Pedagogia nas Organizações (6 meses)</li>
-                                    <li>Planejamento e Gestão Educacional (6 meses)</li>
-                                    <li>Práticas de Ensino em Língua Portuguesa (12 meses)</li>
-                                    <li>Práticas de Letramento e Alfabetização (6 meses)</li>
-                                    <li>Práticas Mediadoras de Gestão de Conflitos Escolar (6 meses)</li>
-                                    <li>Programa Neuroeducativo (6 meses)</li>
-                                    <li>Psicopedagogia com Ênfase em Educação Especial (12 meses)</li>
-                                    <li>Psicopedagogia Escolar (12 meses)</li>
-                                    <li>Psicopedagogia na Educação Especial (6 meses)</li>
-                                    <li>Psicopedagogia na Escola (6 meses)</li>
-                                    <li>Supervisão Escolar e Orientação (6 meses)</li>
-                                    <li>TEA – Transtorno do Espectro Autista (12 meses)</li>
+                                <ul class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-600 border-t border-gray-100">
+                                    <li>• Alfabetização e Letramento (12 meses)</li>
+                                    <li>• Antropologia e Fundamentos da Educação Social (12 meses)</li>
+                                    <li>• Aulas On-line para Educação Básica (4 meses)</li>
+                                    <li>• Didática e Metodologia do Ensino de Geografia (12 meses)</li>
+                                    <li>• Didática e Metodologia do Ensino de Língua Portuguesa (12 meses)</li>
+                                    <li>• Docência da Educação Superior (6 meses)</li>
+                                    <li>• Docência do Ensino Superior (12 meses)</li>
+                                    <li>• Docência e Gestão do Ensino Superior (12 meses)</li>
+                                    <li>• Docência no Novo Ensino Médio (12 meses)</li>
+                                    <li>• Educação com Ênfase no Processo de Formação Étnico-Racial (6 meses)</li>
+                                    <li>• Educação em Meio Ambiente (6 meses)</li>
+                                    <li>• Educação Especial (12 meses)</li>
+                                    <li>• Educação Especial e Inclusiva (6 meses)</li>
+                                    <li>• Educação Infantil (12 meses)</li>
+                                    <li>• Educação Infantil e Alfabetização (6 meses)</li>
+                                    <li>• Educação, Jogos e Ludicidade para o Ensino (12 meses)</li>
+                                    <li>• Filosofia na Educação com Ênfase no Processo de Formação Étnico-Racial (12 meses)</li>
+                                    <li>• Fundamentos da Educação Social e Antropologia (6 meses)</li>
+                                    <li>• Gestão da Educação (12 meses)</li>
+                                    <li>• Gestão Educacional (6 meses)</li>
+                                    <li>• Gestão Escolar (12 meses)</li>
+                                    <li>• Gestão Estratégica Educacional (12 meses)</li>
+                                    <li>• Gestão Pedagógica no Ensino Superior (6 meses)</li>
+                                    <li>• Libras, Saúde e Educação Especial e Inclusiva (12 meses)</li>
+                                    <li>• Língua Portuguesa - Redação (6 meses)</li>
+                                    <li>• Língua Portuguesa: Redação e Oratória (12 meses)</li>
+                                    <li>• Linguística e Ensino da Língua Portuguesa (12 meses)</li>
+                                    <li>• Ludicidade Aplicada em Educação (6 meses)</li>
+                                    <li>• Mediação e Gestão de Conflitos Escolar (12 meses)</li>
+                                    <li>• Metodologia do Ensino a Distância (12 meses)</li>
+                                    <li>• Metodologia do Ensino da Língua Portuguesa (6 meses)</li>
+                                    <li>• Metodologia e Didática do Ensino da Geografia (6 meses)</li>
+                                    <li>• Metodologias Ativas como Práticas Inovadoras na Educação (6 meses)</li>
+                                    <li>• Metodologias da Educação a Distância (6 meses)</li>
+                                    <li>• Neuroeducação (12 meses)</li>
+                                    <li>• Orientação e Supervisão Escolar (12 meses)</li>
+                                    <li>• Pedagogia nas Organizações (6 meses)</li>
+                                    <li>• Planejamento e Gestão Educacional (6 meses)</li>
+                                    <li>• Práticas de Ensino em Língua Portuguesa (12 meses)</li>
+                                    <li>• Práticas de Letramento e Alfabetização (6 meses)</li>
+                                    <li>• Práticas Mediadoras de Gestão de Conflitos Escolar (6 meses)</li>
+                                    <li>• Programa Neuroeducativo (6 meses)</li>
+                                    <li>• Psicopedagogia com Ênfase em Educação Especial (12 meses)</li>
+                                    <li>• Psicopedagogia Escolar (12 meses)</li>
+                                    <li>• Psicopedagogia na Educação Especial (6 meses)</li>
+                                    <li>• Psicopedagogia na Escola (6 meses)</li>
+                                    <li>• Supervisão Escolar e Orientação (6 meses)</li>
+                                    <li>• TEA – Transtorno do Espectro Autista (12 meses)</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleAccordion('gestao')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
-                                <span class="font-bold text-[var(--cb-blue)] flex items-center"><i class="fas fa-briefcase mr-3 text-[var(--cb-gold)] w-5"></i>GESTÃO & MBA</span>
+                        <div class="border border-gray-200 rounded-xl overflow-hidden transition-colors hover:border-[var(--cb-blue)]">
+                            <button onclick="toggleAccordion('gestao')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-white transition-colors text-left focus:outline-none group">
+                                <span class="font-bold text-[var(--cb-blue)] flex items-center text-sm md:text-base">
+                                    <i class="fas fa-briefcase mr-3 text-gray-400 group-hover:text-[var(--cb-gold)] transition-colors w-5 text-center"></i>GESTÃO & MBA
+                                </span>
                                 <i id="icon-gestao" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
                             </button>
                             <div id="gestao" class="accordion-content bg-white">
-                                <ul class="p-4 space-y-2 text-gray-700 text-sm border-t border-gray-100">
-                                    <li>Administração de Contratos Públicos (6 meses)</li>
-                                    <li>Administração de Departamento Pessoal (12 meses)</li>
-                                    <li>Auditoria da Qualidade (12 meses)</li>
-                                    <li>Coaching e Desenvolvimento de Lideranças (12 meses)</li>
-                                    <li>Comercialização de Energia Elétrica (12 meses)</li>
-                                    <li>Comunicação e Marketing Político (12 meses)</li>
-                                    <li>Comunicação Estratégica e Marketing Político (6 meses)</li>
-                                    <li>Contabilidade Gerencial (6 meses)</li>
-                                    <li>Controle e Qualidade em Processos, Produtos e Serviços (6 meses)</li>
-                                    <li>Educação Ambiental (12 meses)</li>
-                                    <li>Educação Financeira (12 meses)</li>
-                                    <li>Engenharia Ambiental e Saneamento Básico (6 meses)</li>
-                                    <li>Engenharia da Manutenção (12 meses)</li>
-                                    <li>Engenharia de Operações e Logísticas (6 meses)</li>
-                                    <li>Engenharia de Produção (12 meses)</li>
-                                    <li>Engenharia de Produção e Operações (6 meses)</li>
-                                    <li>Engenharia, Meio Ambiente e Saneamento Básico (12 meses)</li>
-                                    <li>Finanças Corporativas (12 meses)</li>
-                                    <li>Finanças para Empresas (6 meses)</li>
-                                    <li>Gerenciamento de Projetos de Arquitetura (6 meses)</li>
-                                    <li>Gestão Contábil (12 meses)</li>
-                                    <li>Gestão da Qualidade e Auditoria (6 meses)</li>
-                                    <li>Gestão da Qualidade e Segurança Alimentar (12 meses)</li>
-                                    <li>Gestão da Qualidade em Processos, Produtos e Serviços (12 meses)</li>
-                                    <li>Gestão de Contratos Públicos (12 meses)</li>
-                                    <li>Gestão de Departamento Pessoal (6 meses)</li>
-                                    <li>Gestão de Departamento Pessoal e Legislação Trabalhista (15 meses)</li>
-                                    <li>Gestão de Experiência do Cliente em Serviços de Saúde (12 meses)</li>
-                                    <li>Gestão de Projetos com Ênfase na Arquitetura (12 meses)</li>
-                                    <li>Gestão e Direito Aplicado aos Serviços de Saúde Pública (12 meses)</li>
-                                    <li>Gestão e Direito de Serviços de Saúde Pública (6 meses)</li>
-                                    <li>Gestão em Engenharia de Produção (6 meses)</li>
-                                    <li>Gestão em Processos Gerenciais (12 meses)</li>
-                                    <li>Gestão Tributária, Trabalhista e Previdenciária (15 meses)</li>
-                                    <li>Logística Empresarial (18 meses)</li>
-                                    <li>Marketing (6 meses)</li>
-                                    <li>Marketing Digital e Mídias Sociais (6 meses)</li>
-                                    <li>Marketing e Mídias Sociais (12 meses)</li>
-                                    <li>Marketing e Publicidade (12 meses)</li>
-                                    <li>Marketing Estratégico em Mídias e Negócios Digitais (12 meses)</li>
-                                    <li>MBA em Administração Pública (6 meses)</li>
-                                    <li>MBA em Auditoria e Controladoria (15 meses)</li>
-                                    <li>MBA em Coaching (6 meses)</li>
-                                    <li>MBA em Coaching e Gestão de Pessoas (6 meses)</li>
-                                    <li>MBA em Coaching e Gestão de Talentos (12 meses)</li>
-                                    <li>MBA em Compliance Digital e Proteção de Dados (6 meses)</li>
-                                    <li>MBA em Contabilidade, Auditoria e Controladoria (12 meses)</li>
-                                    <li>MBA em Contabilidade Empresarial (12 meses)</li>
-                                    <li>MBA em Contabilidade nas Empresas (6 meses)</li>
-                                    <li>MBA em Empreendedorismo (12 meses)</li>
-                                    <li>MBA em Empreendedorismo e Gestão de Negócios (15 meses)</li>
-                                    <li>MBA em ESG - Environmental, Social e Governance (14 meses)</li>
-                                    <li>MBA em Finanças Corporativas (12 meses)</li>
-                                    <li>MBA em Gerenciamento de Projetos (15 meses)</li>
-                                    <li>MBA em Gestão Comercial e de Marketing (12 meses)</li>
-                                    <li>MBA em Gestão da Qualidade e Gestão Ambiental (12 meses)</li>
-                                    <li>MBA em Gestão de Alta Performance (12 meses)</li>
-                                    <li>MBA em Gestão de Empresas (6 meses)</li>
-                                    <li>MBA em Gestão de Negócios Disruptivos e Experiência Empresarial (6 meses)</li>
-                                    <li>MBA em Gestão de Negócios em Serviços de Alimentação (12 meses)</li>
-                                    <li>MBA em Gestão de Negócios para Gastronomia (6 meses)</li>
-                                    <li>MBA em Gestão de Pessoas (15 meses)</li>
-                                    <li>MBA em Gestão de Pessoas e Relações Trabalhistas (12 meses)</li>
-                                    <li>MBA em Gestão de Projetos (12 meses)</li>
-                                    <li>MBA em Gestão de Relações Trabalhistas (6 meses)</li>
-                                    <li>MBA em Gestão de Riscos, Compliance e LGPD (15 meses)</li>
-                                    <li>MBA em Gestão e Consultoria Empresarial (6 meses)</li>
-                                    <li>MBA em Gestão e Consultoria Organizacional (12 meses)</li>
-                                    <li>MBA em Gestão Empresarial (15 meses)</li>
-                                    <li>MBA em Gestão Empreendedora (6 meses)</li>
-                                    <li>MBA em Gestão Executiva de Vendas 5.0 (15 meses)</li>
-                                    <li>MBA em Gestão Pública (12 meses)</li>
-                                    <li>MBA em Gestão Tributária (15 meses)</li>
-                                    <li>MBA em Governança Corporativa (12 meses)</li>
-                                    <li>MBA em Governança Empresarial (6 meses)</li>
-                                    <li>MBA em Indústria 5.0 (15 meses)</li>
-                                    <li>MBA em LGPD e Compliance Digital (12 meses)</li>
-                                    <li>MBA em Liderança e Coaching (12 meses)</li>
-                                    <li>MBA em Logística Empresarial (12 meses)</li>
-                                    <li>MBA em Logística nas Organizações (6 meses)</li>
-                                    <li>MBA em Marketing e Vendas (6 meses)</li>
-                                    <li>MBA em Meio Ambiente e Gestão da Qualidade (6 meses)</li>
-                                    <li>MBA em Negócios Disruptivos e Business Experience (12 meses)</li>
-                                    <li>MBA em Recursos Humanos (6 meses)</li>
-                                    <li>Mentoria em Educação Financeira (6 meses)</li>
-                                    <li>Metodologias Ativas (12 meses)</li>
-                                    <li>Neuromarketing & Ciência do Consumo (12 meses)</li>
-                                    <li>Novas Mídias (12 meses)</li>
-                                    <li>Pedagogia Empresarial (12 meses)</li>
-                                    <li>Processos Gerenciais (6 meses)</li>
-                                    <li>Psicologia nas Organizações (6 meses)</li>
-                                    <li>Psicologia Organizacional (12 meses)</li>
-                                    <li>Psicologia Organizacional e do Trabalho (12 meses)</li>
-                                    <li>Recrutamento Tech (6 meses)</li>
-                                    <li>Remuneração Estratégica (15 meses)</li>
-                                    <li>Segurança Pública (12 meses)</li>
-                                    <li>Tech Recruiter (12 meses)</li>
+                                <ul class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-600 border-t border-gray-100">
+                                    <li>• Administração de Contratos Públicos (6 meses)</li>
+                                    <li>• Administração de Departamento Pessoal (12 meses)</li>
+                                    <li>• Auditoria da Qualidade (12 meses)</li>
+                                    <li>• Coaching e Desenvolvimento de Lideranças (12 meses)</li>
+                                    <li>• Comercialização de Energia Elétrica (12 meses)</li>
+                                    <li>• Comunicação e Marketing Político (12 meses)</li>
+                                    <li>• Comunicação Estratégica e Marketing Político (6 meses)</li>
+                                    <li>• Contabilidade Gerencial (6 meses)</li>
+                                    <li>• Controle e Qualidade em Processos, Produtos e Serviços (6 meses)</li>
+                                    <li>• Educação Ambiental (12 meses)</li>
+                                    <li>• Educação Financeira (12 meses)</li>
+                                    <li>• Engenharia Ambiental e Saneamento Básico (6 meses)</li>
+                                    <li>• Engenharia da Manutenção (12 meses)</li>
+                                    <li>• Engenharia de Operações e Logísticas (6 meses)</li>
+                                    <li>• Engenharia de Produção (12 meses)</li>
+                                    <li>• Engenharia de Produção e Operações (6 meses)</li>
+                                    <li>• Engenharia, Meio Ambiente e Saneamento Básico (12 meses)</li>
+                                    <li>• Finanças Corporativas (12 meses)</li>
+                                    <li>• Finanças para Empresas (6 meses)</li>
+                                    <li>• Gerenciamento de Projetos de Arquitetura (6 meses)</li>
+                                    <li>• Gestão Contábil (12 meses)</li>
+                                    <li>• Gestão da Qualidade e Auditoria (6 meses)</li>
+                                    <li>• Gestão da Qualidade e Segurança Alimentar (12 meses)</li>
+                                    <li>• Gestão da Qualidade em Processos, Produtos e Serviços (12 meses)</li>
+                                    <li>• Gestão de Contratos Públicos (12 meses)</li>
+                                    <li>• Gestão de Departamento Pessoal (6 meses)</li>
+                                    <li>• Gestão de Departamento Pessoal e Legislação Trabalhista (15 meses)</li>
+                                    <li>• Gestão de Experiência do Cliente em Serviços de Saúde (12 meses)</li>
+                                    <li>• Gestão de Projetos com Ênfase na Arquitetura (12 meses)</li>
+                                    <li>• Gestão e Direito Aplicado aos Serviços de Saúde Pública (12 meses)</li>
+                                    <li>• Gestão e Direito de Serviços de Saúde Pública (6 meses)</li>
+                                    <li>• Gestão em Engenharia de Produção (6 meses)</li>
+                                    <li>• Gestão em Processos Gerenciais (12 meses)</li>
+                                    <li>• Gestão Tributária, Trabalhista e Previdenciária (15 meses)</li>
+                                    <li>• Logística Empresarial (18 meses)</li>
+                                    <li>• Marketing (6 meses)</li>
+                                    <li>• Marketing Digital e Mídias Sociais (6 meses)</li>
+                                    <li>• Marketing e Mídias Sociais (12 meses)</li>
+                                    <li>• Marketing e Publicidade (12 meses)</li>
+                                    <li>• Marketing Estratégico em Mídias e Negócios Digitais (12 meses)</li>
+                                    <li>• MBA em Administração Pública (6 meses)</li>
+                                    <li>• MBA em Auditoria e Controladoria (15 meses)</li>
+                                    <li>• MBA em Coaching (6 meses)</li>
+                                    <li>• MBA em Coaching e Gestão de Pessoas (6 meses)</li>
+                                    <li>• MBA em Coaching e Gestão de Talentos (12 meses)</li>
+                                    <li>• MBA em Compliance Digital e Proteção de Dados (6 meses)</li>
+                                    <li>• MBA em Contabilidade, Auditoria e Controladoria (12 meses)</li>
+                                    <li>• MBA em Contabilidade Empresarial (12 meses)</li>
+                                    <li>• MBA em Contabilidade nas Empresas (6 meses)</li>
+                                    <li>• MBA em Empreendedorismo (12 meses)</li>
+                                    <li>• MBA em Empreendedorismo e Gestão de Negócios (15 meses)</li>
+                                    <li>• MBA em ESG - Environmental, Social e Governance (14 meses)</li>
+                                    <li>• MBA em Finanças Corporativas (12 meses)</li>
+                                    <li>• MBA em Gerenciamento de Projetos (15 meses)</li>
+                                    <li>• MBA em Gestão Comercial e de Marketing (12 meses)</li>
+                                    <li>• MBA em Gestão da Qualidade e Gestão Ambiental (12 meses)</li>
+                                    <li>• MBA em Gestão de Alta Performance (12 meses)</li>
+                                    <li>• MBA em Gestão de Empresas (6 meses)</li>
+                                    <li>• MBA em Gestão de Negócios Disruptivos e Experiência Empresarial (6 meses)</li>
+                                    <li>• MBA em Gestão de Negócios em Serviços de Alimentação (12 meses)</li>
+                                    <li>• MBA em Gestão de Negócios para Gastronomia (6 meses)</li>
+                                    <li>• MBA em Gestão de Pessoas (15 meses)</li>
+                                    <li>• MBA em Gestão de Pessoas e Relações Trabalhistas (12 meses)</li>
+                                    <li>• MBA em Gestão de Projetos (12 meses)</li>
+                                    <li>• MBA em Gestão de Relações Trabalhistas (6 meses)</li>
+                                    <li>• MBA em Gestão de Riscos, Compliance e LGPD (15 meses)</li>
+                                    <li>• MBA em Gestão e Consultoria Empresarial (6 meses)</li>
+                                    <li>• MBA em Gestão e Consultoria Organizacional (12 meses)</li>
+                                    <li>• MBA em Gestão Empresarial (15 meses)</li>
+                                    <li>• MBA em Gestão Empreendedora (6 meses)</li>
+                                    <li>• MBA em Gestão Executiva de Vendas 5.0 (15 meses)</li>
+                                    <li>• MBA em Gestão Pública (12 meses)</li>
+                                    <li>• MBA em Gestão Tributária (15 meses)</li>
+                                    <li>• MBA em Governança Corporativa (12 meses)</li>
+                                    <li>• MBA em Governança Empresarial (6 meses)</li>
+                                    <li>• MBA em Indústria 5.0 (15 meses)</li>
+                                    <li>• MBA em LGPD e Compliance Digital (12 meses)</li>
+                                    <li>• MBA em Liderança e Coaching (12 meses)</li>
+                                    <li>• MBA em Logística Empresarial (12 meses)</li>
+                                    <li>• MBA em Logística nas Organizações (6 meses)</li>
+                                    <li>• MBA em Marketing e Vendas (6 meses)</li>
+                                    <li>• MBA em Meio Ambiente e Gestão da Qualidade (6 meses)</li>
+                                    <li>• MBA em Negócios Disruptivos e Business Experience (12 meses)</li>
+                                    <li>• MBA em Recursos Humanos (6 meses)</li>
+                                    <li>• Mentoria em Educação Financeira (6 meses)</li>
+                                    <li>• Metodologias Ativas (12 meses)</li>
+                                    <li>• Neuromarketing & Ciência do Consumo (12 meses)</li>
+                                    <li>• Novas Mídias (12 meses)</li>
+                                    <li>• Pedagogia Empresarial (12 meses)</li>
+                                    <li>• Processos Gerenciais (6 meses)</li>
+                                    <li>• Psicologia nas Organizações (6 meses)</li>
+                                    <li>• Psicologia Organizacional (12 meses)</li>
+                                    <li>• Psicologia Organizacional e do Trabalho (12 meses)</li>
+                                    <li>• Recrutamento Tech (6 meses)</li>
+                                    <li>• Remuneração Estratégica (15 meses)</li>
+                                    <li>• Segurança Pública (12 meses)</li>
+                                    <li>• Tech Recruiter (12 meses)</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="mb-4 border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleAccordion('saude')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
-                                <span class="font-bold text-[var(--cb-blue)] flex items-center"><i class="fas fa-user-nurse mr-3 text-[var(--cb-gold)] w-5"></i>SAÚDE</span>
+                        <div class="border border-gray-200 rounded-xl overflow-hidden transition-colors hover:border-[var(--cb-blue)]">
+                            <button onclick="toggleAccordion('saude')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-white transition-colors text-left focus:outline-none group">
+                                <span class="font-bold text-[var(--cb-blue)] flex items-center text-sm md:text-base">
+                                    <i class="fas fa-user-nurse mr-3 text-gray-400 group-hover:text-[var(--cb-gold)] transition-colors w-5 text-center"></i>SAÚDE
+                                </span>
                                 <i id="icon-saude" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
                             </button>
                             <div id="saude" class="accordion-content bg-white">
-                                <ul class="p-4 space-y-2 text-gray-700 text-sm border-t border-gray-100">
-                                    <li>Administração em Saúde Pública (6 meses)</li>
-                                    <li>Biomedicina Estética (12 meses)</li>
-                                    <li>Ciências Biomédicas e Estética (6 meses)</li>
-                                    <li>Cosmetologia Estética (12 meses)</li>
-                                    <li>Cuidado Farmacêutico Oncológico (6 meses)</li>
-                                    <li>Enfermagem com Foco em Oncologia (6 meses)</li>
-                                    <li>Enfermagem do Trabalho (12 meses)</li>
-                                    <li>Enfermagem em Unidade de Terapia Intensiva (12 meses)</li>
-                                    <li>Enfermagem em Urgência e Emergência (12 meses)</li>
-                                    <li>Enfermagem Oncológica (12 meses)</li>
-                                    <li>Epidemiologia e Vigilância em Saúde (12 meses)</li>
-                                    <li>Estética e Cosméticos (12 meses)</li>
-                                    <li>Estética e Cosmetologia (6 meses)</li>
-                                    <li>Estratégia em Saúde da Família (6 meses)</li>
-                                    <li>Farmácia Clínica e Atenção Farmacêutica (12 meses)</li>
-                                    <li>Farmácia Hospitalar (12 meses)</li>
-                                    <li>Farmácia Oncológica (12 meses)</li>
-                                    <li>Farmacologia Clínica (12 meses)</li>
-                                    <li>Farmacologia Clínica Aplicada (6 meses)</li>
-                                    <li>Farmacologia Hospitalar (6 meses)</li>
-                                    <li>Fisiologia, Cinesiologia e Biomecânica Aplicadas ao Exercício (12 meses)</li>
-                                    <li>Fisioterapia Dermatofuncional (12 meses)</li>
-                                    <li>Fisioterapia em Geriatria e Gerontologia (12 meses)</li>
-                                    <li>Fisioterapia em Unidade de Terapia Intensiva (12 meses)</li>
-                                    <li>Fisioterapia Traumato-Ortopédica e Desportiva (12 meses)</li>
-                                    <li>Fitoterápicos e Suplementação Nutricional Aplicada ao Esporte (6 meses)</li>
-                                    <li>Gestão em Saúde Pública (12 meses)</li>
-                                    <li>Imaginologia com Ênfase em Tomografia Computadorizada e Ressonância Magnética (12 meses)</li>
-                                    <li>MBA em Auditoria em Saúde (12 meses)</li>
-                                    <li>MBA em Auditoria em Serviços de Saúde (6 meses)</li>
-                                    <li>MBA em Gestão da Qualidade em Saúde (15 meses)</li>
-                                    <li>MBA em Gestão em Unidades Hospitalares (6 meses)</li>
-                                    <li>MBA em Gestão Hospitalar (12 meses)</li>
-                                    <li>MBA em Gestão Hospitalar e Sistemas de Saúde (15 meses)</li>
-                                    <li>MBA em Saúde 5.0 Inovação em Saúde (12 meses)</li>
-                                    <li>MBA em Saúde 5.0: Tecnologia em Saúde (6 meses)</li>
-                                    <li>Microbiologia e Parasitologia Clínica (6 meses)</li>
-                                    <li>Microbiologia, Parasitologia e Micologia Clínica (12 meses)</li>
-                                    <li>Neurociências e Comportamento Humano (12 meses)</li>
-                                    <li>Nutrição Clínica (12 meses)</li>
-                                    <li>Nutrição e Dietoterapia (6 meses)</li>
-                                    <li>Nutrição e Esportes (6 meses)</li>
-                                    <li>Nutrição e Políticas de Nutrição (6 meses)</li>
-                                    <li>Nutrição e Saúde Pública (12 meses)</li>
-                                    <li>Nutrição Esportiva (12 meses)</li>
-                                    <li>Oncologia Multiprofissional (12 meses)</li>
-                                    <li>Podologia (6 meses)</li>
-                                    <li>Podologia Clínica (12 meses)</li>
-                                    <li>Psicologia Clínica Hospitalar (6 meses)</li>
-                                    <li>Psicologia Hospitalar (12 meses)</li>
-                                    <li>Psicopedagogia Clínica, Institucional e Hospitalar (18 meses)</li>
-                                    <li>Psicopedagogia em Âmbito Hospitalar (6 meses)</li>
-                                    <li>Psicopedagogia Hospitalar (12 meses)</li>
-                                    <li>Prescrição de Fitoterápicos e Suplementação Nutricional, Clínica e Esportiva (12 meses)</li>
-                                    <li>Saúde da Família (12 meses)</li>
-                                    <li>Saúde do Idoso (12 meses)</li>
-                                    <li>Saúde do Trabalhador (12 meses)</li>
-                                    <li>Saúde e Segurança do Trabalhador (6 meses)</li>
-                                    <li>Saúde Geriátrica (6 meses)</li>
-                                    <li>Saúde Mental e Terapias Cognitivas (12 meses)</li>
-                                    <li>Saúde Pública (12 meses)</li>
-                                    <li>Saúde Pública com Ênfase na Atenção Básica (12 meses)</li>
-                                    <li>Saúde Pública e Coletiva (6 meses)</li>
-                                    <li>Sexologia e Sexualidade Humana (12 meses)</li>
-                                    <li>Vigilância em Saúde e Epidemiologia (6 meses)</li>
+                                <ul class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-600 border-t border-gray-100">
+                                    <li>• Administração em Saúde Pública (6 meses)</li>
+                                    <li>• Biomedicina Estética (12 meses)</li>
+                                    <li>• Ciências Biomédicas e Estética (6 meses)</li>
+                                    <li>• Cosmetologia Estética (12 meses)</li>
+                                    <li>• Cuidado Farmacêutico Oncológico (6 meses)</li>
+                                    <li>• Enfermagem com Foco em Oncologia (6 meses)</li>
+                                    <li>• Enfermagem do Trabalho (12 meses)</li>
+                                    <li>• Enfermagem em Unidade de Terapia Intensiva (12 meses)</li>
+                                    <li>• Enfermagem em Urgência e Emergência (12 meses)</li>
+                                    <li>• Enfermagem Oncológica (12 meses)</li>
+                                    <li>• Epidemiologia e Vigilância em Saúde (12 meses)</li>
+                                    <li>• Estética e Cosméticos (12 meses)</li>
+                                    <li>• Estética e Cosmetologia (6 meses)</li>
+                                    <li>• Estratégia em Saúde da Família (6 meses)</li>
+                                    <li>• Farmácia Clínica e Atenção Farmacêutica (12 meses)</li>
+                                    <li>• Farmácia Hospitalar (12 meses)</li>
+                                    <li>• Farmácia Oncológica (12 meses)</li>
+                                    <li>• Farmacologia Clínica (12 meses)</li>
+                                    <li>• Farmacologia Clínica Aplicada (6 meses)</li>
+                                    <li>• Farmacologia Hospitalar (6 meses)</li>
+                                    <li>• Fisiologia, Cinesiologia e Biomecânica Aplicadas ao Exercício (12 meses)</li>
+                                    <li>• Fisioterapia Dermatofuncional (12 meses)</li>
+                                    <li>• Fisioterapia em Geriatria e Gerontologia (12 meses)</li>
+                                    <li>• Fisioterapia em Unidade de Terapia Intensiva (12 meses)</li>
+                                    <li>• Fisioterapia Traumato-Ortopédica e Desportiva (12 meses)</li>
+                                    <li>• Fitoterápicos e Suplementação Nutricional Aplicada ao Esporte (6 meses)</li>
+                                    <li>• Gestão em Saúde Pública (12 meses)</li>
+                                    <li>• Imaginologia com Ênfase em Tomografia Computadorizada e Ressonância Magnética (12 meses)</li>
+                                    <li>• MBA em Auditoria em Saúde (12 meses)</li>
+                                    <li>• MBA em Auditoria em Serviços de Saúde (6 meses)</li>
+                                    <li>• MBA em Gestão da Qualidade em Saúde (15 meses)</li>
+                                    <li>• MBA em Gestão em Unidades Hospitalares (6 meses)</li>
+                                    <li>• MBA em Gestão Hospitalar (12 meses)</li>
+                                    <li>• MBA em Gestão Hospitalar e Sistemas de Saúde (15 meses)</li>
+                                    <li>• MBA em Saúde 5.0 Inovação em Saúde (12 meses)</li>
+                                    <li>• MBA em Saúde 5.0: Tecnologia em Saúde (6 meses)</li>
+                                    <li>• Microbiologia e Parasitologia Clínica (6 meses)</li>
+                                    <li>• Microbiologia, Parasitologia e Micologia Clínica (12 meses)</li>
+                                    <li>• Neurociências e Comportamento Humano (12 meses)</li>
+                                    <li>• Nutrição Clínica (12 meses)</li>
+                                    <li>• Nutrição e Dietoterapia (6 meses)</li>
+                                    <li>• Nutrição e Esportes (6 meses)</li>
+                                    <li>• Nutrição e Políticas de Nutrição (6 meses)</li>
+                                    <li>• Nutrição e Saúde Pública (12 meses)</li>
+                                    <li>• Nutrição Esportiva (12 meses)</li>
+                                    <li>• Oncologia Multiprofissional (12 meses)</li>
+                                    <li>• Podologia (6 meses)</li>
+                                    <li>• Podologia Clínica (12 meses)</li>
+                                    <li>• Psicologia Clínica Hospitalar (6 meses)</li>
+                                    <li>• Psicologia Hospitalar (12 meses)</li>
+                                    <li>• Psicopedagogia Clínica, Institucional e Hospitalar (18 meses)</li>
+                                    <li>• Psicopedagogia em Âmbito Hospitalar (6 meses)</li>
+                                    <li>• Psicopedagogia Hospitalar (12 meses)</li>
+                                    <li>• Prescrição de Fitoterápicos e Suplementação Nutricional, Clínica e Esportiva (12 meses)</li>
+                                    <li>• Saúde da Família (12 meses)</li>
+                                    <li>• Saúde do Idoso (12 meses)</li>
+                                    <li>• Saúde do Trabalhador (12 meses)</li>
+                                    <li>• Saúde e Segurança do Trabalhador (6 meses)</li>
+                                    <li>• Saúde Geriátrica (6 meses)</li>
+                                    <li>• Saúde Mental e Terapias Cognitivas (12 meses)</li>
+                                    <li>• Saúde Pública (12 meses)</li>
+                                    <li>• Saúde Pública com Ênfase na Atenção Básica (12 meses)</li>
+                                    <li>• Saúde Pública e Coletiva (6 meses)</li>
+                                    <li>• Sexologia e Sexualidade Humana (12 meses)</li>
+                                    <li>• Vigilância em Saúde e Epidemiologia (6 meses)</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <div class="mb-6 border border-gray-200 rounded-lg overflow-hidden">
-                            <button onclick="toggleAccordion('tecnologia')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left focus:outline-none">
-                                <span class="font-bold text-[var(--cb-blue)] flex items-center"><i class="fas fa-laptop-code mr-3 text-[var(--cb-gold)] w-5"></i>TECNOLOGIA</span>
+                        <div class="border border-gray-200 rounded-xl overflow-hidden transition-colors hover:border-[var(--cb-blue)]">
+                            <button onclick="toggleAccordion('tecnologia')" class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-white transition-colors text-left focus:outline-none group">
+                                <span class="font-bold text-[var(--cb-blue)] flex items-center text-sm md:text-base">
+                                    <i class="fas fa-laptop-code mr-3 text-gray-400 group-hover:text-[var(--cb-gold)] transition-colors w-5 text-center"></i>TECNOLOGIA
+                                </span>
                                 <i id="icon-tecnologia" class="fas fa-chevron-down text-gray-400 rotate-icon"></i>
                             </button>
                             <div id="tecnologia" class="accordion-content bg-white">
-                                <ul class="p-4 space-y-2 text-gray-700 text-sm border-t border-gray-100">
-                                    <li>Administração de Proteção de Dados (6 meses)</li>
-                                    <li>Arquitetura de Cloud Computing (12 meses)</li>
-                                    <li>Arquitetura de Computação em Nuvem (6 meses)</li>
-                                    <li>Banco de Dados Oracle (12 meses)</li>
-                                    <li>Building Information Modeling - BIM (12 meses)</li>
-                                    <li>Cibersegurança: Monitoramento e Proteção Digital de Negócios (12 meses)</li>
-                                    <li>Ciência de Dados (12 meses)</li>
-                                    <li>Data Science (12 meses)</li>
-                                    <li>DevOps (6 meses)</li>
-                                    <li>Digital Influencer (12 meses)</li>
-                                    <li>Digital Security (12 meses)</li>
-                                    <li>Engenharia de DevOps (12 meses)</li>
-                                    <li>Especialização em IoT: Interação entre Dispositivos, Máquinas e Pessoas (12 meses)</li>
-                                    <li>Gerenciamento de TI (6 meses)</li>
-                                    <li>Gestão da Tecnologia da Informação (12 meses)</li>
-                                    <li>Influenciador Digital (6 meses)</li>
-                                    <li>Inovação de Mídias Digitais (6 meses)</li>
-                                    <li>Inovação e Transformação Digital (12 meses)</li>
-                                    <li>Inteligência e Segurança Pública (6 meses)</li>
-                                    <li>Internet das Coisas (IoT): Conexão entre Dispositivos, Máquinas e Pessoas (6 meses)</li>
-                                    <li>MBA em Data Protection Officer (12 meses)</li>
-                                    <li>MBA em Data Science, Analytics e BI (15 meses)</li>
-                                    <li>MBA em Engenharia de Software (15 meses)</li>
-                                    <li>MBA em Gestão 4.0: Transformação Digital e Automação de Processos (12 meses)</li>
-                                    <li>MBA em Gestão de Tecnologias Disruptivas e Automação de Processos (6 meses)</li>
-                                    <li>MBA em Gestão Tecnológica Big Data e Inteligência Artificial (6 meses)</li>
-                                    <li>MBA em Tecnologias para Gestão: Big Data e Inteligência Artificial (12 meses)</li>
-                                    <li>Realidade Virtual e Aumentada (12 meses)</li>
-                                    <li>Segurança Cibernética (6 meses)</li>
-                                    <li>Segurança da Informação (12 meses)</li>
-                                    <li>Segurança Digital (6 meses)</li>
-                                    <li>Sistemas de Informação (12 meses)</li>
-                                    <li>Sistemas Informáticos (6 meses)</li>
-                                    <li>Teste e Qualidade de Software (12 meses)</li>
-                                    <li>Testes Ágeis de Software (6 meses)</li>
-                                    <li>Testes de Software Ágil (12 meses)</li>
-                                    <li>Transformação Digital e Cultura Digital nas Organizações (6 meses)</li>
+                                <ul class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-600 border-t border-gray-100">
+                                    <li>• Administração de Proteção de Dados (6 meses)</li>
+                                    <li>• Arquitetura de Cloud Computing (12 meses)</li>
+                                    <li>• Arquitetura de Computação em Nuvem (6 meses)</li>
+                                    <li>• Banco de Dados Oracle (12 meses)</li>
+                                    <li>• Building Information Modeling - BIM (12 meses)</li>
+                                    <li>• Cibersegurança: Monitoramento e Proteção Digital de Negócios (12 meses)</li>
+                                    <li>• Ciência de Dados (12 meses)</li>
+                                    <li>• Data Science (12 meses)</li>
+                                    <li>• DevOps (6 meses)</li>
+                                    <li>• Digital Influencer (12 meses)</li>
+                                    <li>• Digital Security (12 meses)</li>
+                                    <li>• Engenharia de DevOps (12 meses)</li>
+                                    <li>• Especialização em IoT: Interação entre Dispositivos, Máquinas e Pessoas (12 meses)</li>
+                                    <li>• Gerenciamento de TI (6 meses)</li>
+                                    <li>• Gestão da Tecnologia da Informação (12 meses)</li>
+                                    <li>• Influenciador Digital (6 meses)</li>
+                                    <li>• Inovação de Mídias Digitais (6 meses)</li>
+                                    <li>• Inovação e Transformação Digital (12 meses)</li>
+                                    <li>• Inteligência e Segurança Pública (6 meses)</li>
+                                    <li>• Internet das Coisas (IoT): Conexão entre Dispositivos, Máquinas e Pessoas (6 meses)</li>
+                                    <li>• MBA em Data Protection Officer (12 meses)</li>
+                                    <li>• MBA em Data Science, Analytics e BI (15 meses)</li>
+                                    <li>• MBA em Engenharia de Software (15 meses)</li>
+                                    <li>• MBA em Gestão 4.0: Transformação Digital e Automação de Processos (12 meses)</li>
+                                    <li>• MBA em Gestão de Tecnologias Disruptivas e Automação de Processos (6 meses)</li>
+                                    <li>• MBA em Gestão Tecnológica Big Data e Inteligência Artificial (6 meses)</li>
+                                    <li>• MBA em Tecnologias para Gestão: Big Data e Inteligência Artificial (12 meses)</li>
+                                    <li>• Realidade Virtual e Aumentada (12 meses)</li>
+                                    <li>• Segurança Cibernética (6 meses)</li>
+                                    <li>• Segurança da Informação (12 meses)</li>
+                                    <li>• Segurança Digital (6 meses)</li>
+                                    <li>• Sistemas de Informação (12 meses)</li>
+                                    <li>• Sistemas Informáticos (6 meses)</li>
+                                    <li>• Teste e Qualidade de Software (12 meses)</li>
+                                    <li>• Testes Ágeis de Software (6 meses)</li>
+                                    <li>• Testes de Software Ágil (12 meses)</li>
+                                    <li>• Transformação Digital e Cultura Digital nas Organizações (6 meses)</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="mt-8 space-y-3">
-                            <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20minha%20matr%C3%ADcula%20na%20P%C3%B3s-Gradua%C3%A7%C3%A3o." target="_blank" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
-                                <i class="fab fa-whatsapp mr-2"></i> <span>Falar com Consultor</span>
+                            <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20minha%20matr%C3%ADcula%20na%20P%C3%B3s-Gradua%C3%A7%C3%A3o." target="_blank" class="btn btn-blue w-full rounded-xl py-4 font-bold flex items-center justify-center gap-2 shadow-md">
+                                <i class="fab fa-whatsapp text-xl"></i> <span>Falar com Consultor</span>
                             </a>
-                            <a href="../index.html" class="btn btn-gold block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
-                                <i class="fas fa-arrow-left mr-2"></i> <span>Voltar</span>
+                            <a href="../index.html" class="btn btn-blue-light w-full rounded-xl py-4 font-bold flex items-center justify-center gap-2">
+                                <i class="fas fa-arrow-left"></i> <span>Voltar ao Início</span>
                             </a>
                         </div>
                     </div>
-                </section>
+                </div>
             </div>
         </main>
-        <footer class="py-8 px-4 bg-gray-50 border-t border-gray-200 mt-auto">
-            <div class="max-w-4xl mx-auto text-center text-sm text-gray-600">
+        
+        <footer class="py-6 px-4 border-t border-gray-200/50 bg-white/50 backdrop-blur-sm mt-auto">
+            <div class="max-w-4xl mx-auto text-center text-xs text-gray-500">
                 <p>&copy; Instituto CB - Polo Picos</p>
             </div>
         </footer>
     </div>
-    <script src="../assets/js/script.js"></script>
     
+    <script src="../assets/js/script.js"></script>
     <script>
         function toggleAccordion(id) {
             const content = document.getElementById(id);
             const icon = document.getElementById('icon-' + id);
             const isOpen = content.classList.contains('open');
 
-            // Fecha todos os outros (opcional, remova se quiser abrir vários ao mesmo tempo)
+            // Opcional: Fechar outros acordeões
             document.querySelectorAll('.accordion-content').forEach(el => {
                 el.classList.remove('open');
             });
@@ -441,7 +466,6 @@
                 el.style.transform = 'rotate(0deg)';
             });
 
-            // Abre ou fecha o atual
             if (!isOpen) {
                 content.classList.add('open');
                 icon.style.transform = 'rotate(180deg)';

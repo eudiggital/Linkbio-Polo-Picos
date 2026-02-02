@@ -1,157 +1,180 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instituto CB - Polo Picos | Educação Profissional</title>
-    <meta name="description" content="Portal do Instituto CB - Polo Picos com cursos técnicos, EJA e segunda licenciatura.">
-    
+    <meta name="description"
+        content="Portal do Instituto CB - Polo Picos com cursos técnicos, EJA e segunda licenciatura.">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body class="min-h-screen">
+
     <div class="content-wrapper">
-        <header class="py-6 px-4 text-center bg-white bg-opacity-90 shadow-md relative z-10">
-            <div class="max-w-6xl mx-auto">
-                <img src="assets/images/CB.png" alt="Instituto CB Logo" class="w-20 h-20 mx-auto mb-4 rounded-full shadow-lg" style="filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));">
-                <h1 class="text-4xl md:text-5xl font-bold text-[var(--cb-blue)] mb-1 animate-fade-in-down">
-                    <span class="inline-block">INSTITUTO CB</span>
-                    <span class="block text-xl md:text-2xl text-[var(--cb-gold)] mt-1 font-semibold">POLO PICOS</span>
-                </h1>
+        <header class="py-3 px-4 bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 transition-all duration-300">
+            <div class="max-w-4xl mx-auto flex flex-row items-center justify-center gap-3">
+
+                <img src="assets/images/CB.png" alt="Instituto CB Logo"
+                    class="w-12 h-12 md:w-14 md:h-14 rounded-full shadow-sm border border-gray-100">
+
+                <div class="text-left">
+                    <h1 class="text-lg md:text-2xl font-bold text-[var(--cb-blue)] leading-none">
+                        INSTITUTO CB
+                    </h1>
+                    <span
+                        class="text-xs md:text-sm text-[var(--cb-gold)] font-bold tracking-wider uppercase block mt-0.5">
+                        Polo Picos
+                    </span>
+                </div>
+
             </div>
         </header>
 
-        <main class="flex-grow px-4 py-8">
-            <div class="max-w-md md:max-w-2xl mx-auto space-y-10">
-                
-                <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover">
-                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
-                        <i class="fas fa-book-open text-2xl mr-3 text-[var(--cb-gold)]"></i>
-                        <h2 class="text-xl font-semibold">CURSOS</h2>
+        <main class="flex-grow px-4 py-8 w-full max-w-3xl mx-auto space-y-6">
+
+            <section class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover">
+                <div class="bg-[var(--cb-blue)] text-white py-4 px-6 flex items-center justify-center md:justify-start">
+                    <i class="fas fa-book-open text-xl mr-3 text-[var(--cb-gold)]"></i>
+                    <h2 class="text-lg md:text-xl font-bold tracking-wide">NOSSOS CURSOS</h2>
+                </div>
+
+                <div class="p-5 flex flex-col gap-3">
+                    <a href="pages/cursos-tecnicos.html"
+                        class="btn btn-gold w-full rounded-xl py-4 px-6 font-bold text-center flex items-center justify-center md:justify-start gap-3 shadow-md">
+                        <i class="fas fa-tools text-xl w-6"></i>
+                        <span class="text-sm md:text-base">CURSOS TÉCNICOS (Presencial e EAD)</span>
+                    </a>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <a href="pages/graduacao.html"
+                            class="btn btn-blue-light w-full rounded-xl py-3 px-4 font-medium flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-graduation-cap text-[var(--cb-blue)] text-lg w-6"></i>
+                            <span class="text-sm">GRADUAÇÃO</span>
+                        </a>
+
+                        <a href="pages/eja.html"
+                            class="btn btn-blue-light w-full rounded-xl py-3 px-4 font-medium flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-user-clock text-[var(--cb-blue)] text-lg w-6"></i>
+                            <span class="text-sm">EJA (Supletivo)</span>
+                        </a>
+
+                        <a href="pages/especializacao-tecnica.html"
+                            class="btn btn-blue-light w-full rounded-xl py-3 px-4 font-medium flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-award text-[var(--cb-blue)] text-lg w-6"></i>
+                            <span class="text-sm">ESPECIALIZAÇÃO TÉCNICA</span>
+                        </a>
+
+                        <a href="pages/extensao-universitaria.html"
+                            class="btn btn-blue-light w-full rounded-xl py-3 px-4 font-medium flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-university text-[var(--cb-blue)] text-lg w-6"></i>
+                            <span class="text-sm">EXTENSÃO UNIVERSITÁRIA</span>
+                        </a>
+
+                        <a href="pages/segunda-licenciatura.html"
+                            class="btn btn-blue-light w-full rounded-xl py-3 px-4 font-medium flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-layer-group text-[var(--cb-blue)] text-lg w-6"></i>
+                            <span class="text-sm">SEGUNDA LICENCIATURA</span>
+                        </a>
+
+                        <a href="pages/mestrado.html"
+                            class="btn btn-blue-light w-full rounded-xl py-3 px-4 font-medium flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-globe-americas text-[var(--cb-blue)] text-lg w-6"></i>
+                            <span class="text-sm">MESTRADO INTERNACIONAL</span>
+                        </a>
+
+                        <a href="pages/pos-graduacao.html"
+                            class="btn btn-blue-light w-full rounded-xl py-3 px-4 font-medium flex items-center justify-center md:justify-start gap-3 col-span-1 md:col-span-2">
+                            <i class="fas fa-book-reader text-[var(--cb-blue)] text-lg w-6"></i>
+                            <span class="text-sm">PÓS-GRADUAÇÃO</span>
+                        </a>
                     </div>
-                    <div class="p-4 space-y-3">
-                        <a href="pages/cursos-tecnicos.html" class="btn btn-gold block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center text-center">
-                            <i class="fas fa-tools w-5 mr-2 text-center"></i>
-                            <span>CURSOS TÉCNICOS (Presencial e EAD)</span>
-                        </a>
+                </div>
+            </section>
 
-                        <a href="pages/graduacao.html" class="btn btn-blue-light block w-full py-2 px-4 rounded-lg font-medium flex items-center justify-center text-center">
-                            <i class="fas fa-graduation-cap w-5 mr-2 text-center"></i>
-                            <span>GRADUAÇÃO</span>
-                        </a>
+            <section class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover">
+                <div class="bg-[var(--cb-blue)] text-white py-3 px-6 flex items-center">
+                    <i class="fas fa-comments text-xl mr-3 text-[var(--cb-gold)]"></i>
+                    <h2 class="text-lg font-bold">ATENDIMENTO</h2>
+                </div>
+                <div class="p-5 text-center">
+                    <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Preciso%20de%20suporte." target="_blank"
+                        class="btn btn-blue w-full rounded-xl py-4 font-bold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <span>Falar no WhatsApp</span>
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500 font-medium">Atendimento: Seg a Sex, 08h às 18h</p>
+                </div>
+            </section>
 
-                        <a href="pages/eja.html" class="btn btn-blue-light block w-full py-2 px-4 rounded-lg font-medium flex items-center justify-center text-center">
-                            <i class="fas fa-user-clock w-5 mr-2 text-center"></i>
-                            <span>EJA (Supletivo)</span>
-                        </a>
-                        
-                        <a href="pages/especializacao-tecnica.html" class="btn btn-blue-light block w-full py-2 px-4 rounded-lg font-medium flex items-center justify-center text-center">
-                            <i class="fas fa-award w-5 mr-2 text-center"></i>
-                            <span>ESPECIALIZAÇÃO TÉCNICA</span>
-                        </a>
-
-                        <a href="pages/extensao-universitaria.html" class="btn btn-blue-light block w-full py-2 px-4 rounded-lg font-medium flex items-center justify-center text-center">
-                            <i class="fas fa-university w-5 mr-2 text-center"></i>
-                            <span>EXTENSÃO UNIVERSITÁRIA</span>
-                        </a>
-                        
-                        <a href="pages/segunda-licenciatura.html" class="btn btn-blue-light block w-full py-2 px-4 rounded-lg font-medium flex items-center justify-center text-center">
-                            <i class="fas fa-layer-group w-5 mr-2 text-center"></i>
-                            <span>SEGUNDA LICENCIATURA</span>
-                        </a>
-
-                        <a href="pages/mestrado.html" class="btn btn-blue-light block w-full py-2 px-4 rounded-lg font-medium flex items-center justify-center text-center">
-                            <i class="fas fa-globe-americas w-5 mr-2 text-center"></i>
-                            <span>MESTRADO INTERNACIONAL</span>
-                        </a>
-
-                         <a href="pages/pos-graduacao.html" class="btn btn-blue-light block w-full py-2 px-4 rounded-lg font-medium flex items-center justify-center text-center">
-                            <i class="fas fa-book-reader w-5 mr-2 text-center"></i>
-                            <span>PÓS-GRADUAÇÃO</span>
-                        </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <section class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover flex flex-col">
+                    <div
+                        class="bg-gray-100 text-[var(--cb-blue)] py-3 px-5 border-b border-gray-200 font-bold flex items-center">
+                        <i class="fas fa-coins mr-2 text-[var(--cb-gold)]"></i> FINANCEIRO
                     </div>
-                </section>
-
-                <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover mt-8">
-                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
-                        <i class="fas fa-comments text-2xl mr-3 text-[var(--cb-gold)]"></i>
-                        <h2 class="text-xl font-semibold">FALE CONOSCO</h2>
-                    </div>
-                    <div class="p-4 text-center">
-                        <a href="https://wa.me/5589988216015?text=Ol%C3%A1!%20Preciso%20de%20suporte." target="_blank" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
-                            <i class="fab fa-whatsapp text-xl mr-2"></i> 
-                            <span>Chat via WhatsApp</span>
-                        </a>
-                        <p class="mt-3 text-sm text-gray-600 font-medium">Contato: (89) 98821-6015</p>
-                    </div>
-                </section> 
-
-                <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover mt-8">
-                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
-                        <i class="fas fa-coins text-2xl mr-3 text-[var(--cb-gold)]"></i>
-                        <h2 class="text-xl font-semibold">FINANCEIRO</h2>
-                    </div>
-                    <div class="p-4 space-y-4">
-                        <a href="https://wa.me/5589981250551?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20renegocia%C3%A7%C3%A3o%20de%20d%C3%A9bitos." target="_blank" class="btn btn-red block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center pulse">
+                    <div class="p-5 flex flex-col gap-3 flex-grow">
+                        <a href="https://wa.me/5589981250551?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20renegocia%C3%A7%C3%A3o%20de%20d%C3%A9bitos."
+                            target="_blank"
+                            class="btn btn-red w-full rounded-lg py-3 px-4 font-medium flex items-center justify-center gap-2">
+                            <i class="fas fa-hand-holding-usd"></i>
                             <span>Renegociar Débito</span>
                         </a>
-                        <a href="https://wa.me/5589981250551?text=Ol%C3%A1!%20Preciso%20emitir%20a%20segunda%20via%20de%20um%20boleto." target="_blank" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium text-center flex items-center justify-center">
-                            <i class="fas fa-print mr-2"></i> 
-                            <span>Emitir 2ª Via de Boleto</span>
+                        <a href="https://wa.me/5589981250551?text=Ol%C3%A1!%20Preciso%20emitir%20a%20segunda%20via%20de%20um%20boleto."
+                            target="_blank"
+                            class="btn btn-blue-light w-full rounded-lg py-3 px-4 font-medium flex items-center justify-center gap-2">
+                            <i class="fas fa-barcode"></i>
+                            <span>2ª Via de Boleto</span>
                         </a>
-                        <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 text-center">
-                            <p class="text-sm text-blue-700 font-medium">Contato: (89) 98125-0551</p>
-                        </div>
                     </div>
                 </section>
-                
-                <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover mt-8">
-                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
-                        <i class="fas fa-user-graduate text-2xl mr-3 text-[var(--cb-gold)]"></i>
-                        <h2 class="text-xl font-semibold">ACADÊMICO</h2>
+
+                <section class="bg-white rounded-2xl shadow-sm overflow-hidden card-hover flex flex-col">
+                    <div
+                        class="bg-gray-100 text-[var(--cb-blue)] py-3 px-5 border-b border-gray-200 font-bold flex items-center">
+                        <i class="fas fa-user-graduate mr-2 text-[var(--cb-gold)]"></i> ACADÊMICO
                     </div>
-                    <div class="p-4 text-center">
-                        <a href="https://wa.me/5589981053594?text=Ol%C3%A1!%20Preciso%20de%20suporte%20acad%C3%AAmico." target="_blank" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
-                            <i class="fab fa-whatsapp text-xl mr-2"></i> 
-                            <span>Falar com setor Acadêmico</span>
+                    <div class="p-5 flex flex-col gap-3 flex-grow">
+                        <a href="https://wa.me/5589981053594?text=Ol%C3%A1!%20Preciso%20de%20suporte%20acad%C3%AAmico."
+                            target="_blank"
+                            class="btn btn-blue-light w-full rounded-lg py-3 px-4 font-medium flex items-center justify-center gap-2">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Suporte Acadêmico</span>
                         </a>
-                        <p class="mt-3 text-sm text-gray-600 font-medium">Contato: (89) 98105-3594</p>
-                    </div>
-                </section> 
-                
-                <section class="bg-white rounded-xl shadow-md overflow-hidden card-hover mt-8">
-                    <div class="bg-gradient-to-r from-[var(--cb-blue)] to-[var(--dark-blue)] text-white py-3 px-4 flex items-center">
-                        <i class="fas fa-pencil-alt text-2xl mr-3 text-[var(--cb-gold)]"></i>
-                        <h2 class="text-xl font-semibold">MATRÍCULAS</h2>
-                    </div>
-                    <div class="p-4 text-center">
-                        <a href="https://wa.me/5589981103805?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20matr%C3%ADculas." target="_blank" class="btn btn-blue block w-full py-3 px-4 rounded-lg font-medium flex items-center justify-center">
-                            <i class="fab fa-whatsapp text-xl mr-2"></i> 
+                        <a href="https://wa.me/5589981103805?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20matr%C3%ADculas."
+                            target="_blank"
+                            class="btn btn-blue w-full rounded-lg py-3 px-4 font-medium flex items-center justify-center gap-2">
+                            <i class="fas fa-pen-nib"></i>
                             <span>Realizar Matrícula</span>
                         </a>
-                        <p class="mt-3 text-sm text-gray-600 font-medium">Contato: (89) 98110-3805</p>
                     </div>
-                </section> 
-
+                </section>
             </div>
+
         </main>
 
-        <footer class="py-8 px-4 bg-gray-50 border-t border-gray-200 mt-auto">
+        <footer class="py-8 px-4 border-t border-gray-200/50 bg-white/50 backdrop-blur-sm mt-auto">
             <div class="max-w-4xl mx-auto text-center">
-                 <div class="flex justify-center space-x-6 mb-4">
-                    <a href="https://instagram.com/unifaelpicospi" target="_blank" class="text-gray-500 hover:text-[#e4405f] transform hover:scale-125 transition-transform duration-300">
-                        <i class="fab fa-instagram text-2xl"></i>
+                <div class="flex justify-center space-x-8 mb-6">
+                    <a href="https://instagram.com/unifaelpicospi" target="_blank"
+                        class="text-gray-400 hover:text-[#e4405f] transform hover:scale-110 transition-all duration-300">
+                        <i class="fab fa-instagram text-3xl"></i>
                     </a>
-                    <a href="https://api.whatsapp.com/send?phone=558988216015" target="_blank" class="text-gray-500 hover:text-[#25D366] transform hover:scale-125 transition-transform duration-300">
-                        <i class="fab fa-whatsapp text-2xl"></i>
+                    <a href="https://api.whatsapp.com/send?phone=558988216015" target="_blank"
+                        class="text-gray-400 hover:text-[#25D366] transform hover:scale-110 transition-all duration-300">
+                        <i class="fab fa-whatsapp text-3xl"></i>
                     </a>
                 </div>
-                <div class="text-center text-sm text-gray-600">
-                    <p class="font-bold text-[var(--cb-blue)]">Instituto CB - Polo Picos</p>
-                    <p class="flex justify-center items-center gap-2 mt-2">
+                <div class="text-center text-xs text-gray-500">
+                    <p class="font-bold text-[var(--cb-blue)] text-sm">Instituto CB - Polo Picos</p>
+                    <p class="flex justify-center items-center gap-1 mt-2">
                         Desenvolvido por
-                        <a href="https://www.instagram.com/eudiggit4l/#" target="_blank" class="text-blue-500 hover:underline font-medium">
+                        <a href="https://www.instagram.com/eudiggit4l/#" target="_blank"
+                            class="text-[var(--light-blue)] hover:text-[var(--cb-blue)] font-semibold transition-colors">
                             Eu.Diggital
                         </a>
                     </p>
@@ -161,4 +184,5 @@
     </div>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
